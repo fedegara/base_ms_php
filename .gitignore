@@ -1,0 +1,14 @@
+.idea
+.idea/*
+.DS_Store
+.env
+phinx.yml
+vendor
+vendor/*
+*.sql
+*.sh
+*.zip
+*.bz2
+migrations.yml
+dump/*
+./_log

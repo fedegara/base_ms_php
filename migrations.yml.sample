@@ -1,0 +1,5 @@
+name: Linkedin Migrations
+migrations_namespace: LinkedinMigrations
+database: db_linkedin
+collection_name: linkedin_migration_versions
+migrations_directory: migrations/migrations_files
