@@ -1,5 +1,4 @@
-# Consumers Service
-    Centralize consumers
+# Base PHP Service
     
 ## Getting Started
 ### Prerequisites
