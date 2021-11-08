@@ -18,16 +18,15 @@ use Cratia\Rest\Actions\Action;
  * Class Get
  * @package App\Application\Actions\Brand
  */
-class Get extends Action
+class Post extends Action
 {
 
     /**
      * @return array
-     * @throws \Psr\Container\ContainerExceptionInterface
-     * @throws \Psr\Container\NotFoundExceptionInterface
      */
     protected function action()
     {
+        die("prueba post");
         return (new ServiceFetchBrands($this->getContainer()->get(IBrandDAO::class)))->execute();
     }
 }

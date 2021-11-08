@@ -1,7 +1,8 @@
 <?php
 declare(strict_types=1);
 
-use App\Application\Actions\Brand\Get;
+use App\Application\Actions\Brand\Get as BrandGet;
+use \App\Application\Actions\Brand\Post as BrandPost;
 use App\Application\Actions\Status;
 use Cratia\Rest\Actions\Observability\Ping;
 use Cratia\Rest\Actions\Observability\Error;
@@ -22,7 +23,12 @@ return function (App $app) {
         [
             'method' => ["GET"],
             'route' => 'brands[/]',
-            'callable' => Get::class
+            'callable' => BrandGet::class
+        ],
+        [
+            'method' => ["POST"],
+            'route' => 'brands[/]',
+            'callable' => BrandPost::class
         ]
     ];
 

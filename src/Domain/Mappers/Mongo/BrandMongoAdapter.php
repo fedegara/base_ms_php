@@ -24,7 +24,7 @@ final class BrandMongoAdapter extends MongoAdapterBase implements IBrandAdapter,
         parent::__construct($connection);
     }
 
-    public function fetchAll(): QueryResponse
+    public function fetchAll()
     {
         $data = $this->fetch((new Query(self::COLLECTION))
             ->setLimit(Query::NO_LIMIT));
@@ -32,8 +32,9 @@ final class BrandMongoAdapter extends MongoAdapterBase implements IBrandAdapter,
         if (empty($data->getData())) {
             throw new DataNotFound("Error in BrandMongoAdapter::fetchAll() ... Brand NOT FOUND");
         }
-
-        return $data;
+        return array_map(function($row){
+            return $this->parseBrand($row);
+        },$data->getData());
     }
 
     public function parseBrand(array $data): Brand
