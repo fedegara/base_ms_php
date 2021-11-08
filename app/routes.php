@@ -24,11 +24,6 @@ return function (App $app) {
             'method' => ["GET"],
             'route' => 'brands[/]',
             'callable' => BrandGet::class
-        ],
-        [
-            'method' => ["POST"],
-            'route' => 'brands[/]',
-            'callable' => BrandPost::class
         ]
     ];
 
