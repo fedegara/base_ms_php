@@ -1,9 +1,9 @@
 <?php
 
 use Phinx\Db\Adapter\MysqlAdapter;
-use Phinx\Migration\BunkerAbstractMigration;
+use Phinx\Migration\AbstractMigration;
 
-class IncreaseColumnSizeForAnaliticsv4 extends BunkerAbstractMigration
+class IncreaseColumnSizeForAnaliticsv4 extends AbstractMigration
 {
     /**
      * Bunker migration
