@@ -23,6 +23,8 @@ class Get extends Action
 
     /**
      * @return array
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
      */
     protected function action()
     {

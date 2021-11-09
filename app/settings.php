@@ -34,9 +34,19 @@ return function (ContainerBuilder $containerBuilder) {
             ],
             'DEBUG_ON' => $_ENV['DEBUG_ON'],
             "OAUTH_SERVICE_URL" => $_ENV['OAUTH_SERVICE_URL'],
+            "DB" => $_ENV['USE_CONNECTION'],
             "MONGO_DSN_READER" => $_ENV['MONGO_DSN_READER'],
             "MONGO_DB_NAME" => $_ENV['MONGO_DB_NAME'],
             "MONGO_AMAZON" => $_ENV['MONGO_AMAZON'] === "true",
+            "MYSQL" => [
+                "MYSQL_SERVER" => $_ENV['DB_SERVER'],
+                "MYSQL_BASE" => $_ENV['DB_BASE'],
+                "MYSQL_USER" => $_ENV['DB_USER'],
+                "MYSQL_PASS" => $_ENV['DB_PASS'],
+                "MYSQL_PORT" => $_ENV['DB_PORT'],
+                "MYSQL_CHARSET" => $_ENV['DB_CHARSET'],
+                "MYSQL_PERSISTENT" => $_ENV['DB_PERSISTENT'],
+            ]
         ],
     ]);
 };

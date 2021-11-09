@@ -21,6 +21,7 @@ use Monolog\Processor\UidProcessor;
 use Monolog\Processor\WebProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use App\Infraestructure\Persistence\Mysql\MysqlDB;
 
 return function (ContainerBuilder $containerBuilder) {
 
@@ -59,6 +60,10 @@ return function (ContainerBuilder $containerBuilder) {
             return MongoConnection::getInstance($settings['MONGO_DSN_READER'], $settings['MONGO_DB_NAME'], $settings['MONGO_AMAZON']);
         },
 
+        MysqlDB::class => function() {
+            return MysqlDB::getInstance();
+        },
+
         LogdnaInterface::class => function (ContainerInterface $c) {
             $settings = $c->get('settings');
             $loggerSettings = $settings['logdna_path'];
@@ -70,7 +75,15 @@ return function (ContainerBuilder $containerBuilder) {
         },
 
         IBrandDAO::class => function (ContainerInterface $container) {
-            return new \App\Domain\Mappers\Mongo\BrandMongoAdapter($container->get(MongoConnection::class));
+            $ret = false;
+            $settings = $container->get('settings');
+            if($settings['DB'] == 'MONGO'){
+                $ret = new \App\Domain\Mappers\Mongo\BrandMongoAdapter($container->get(MongoConnection::class));
+            } else if($settings['DB'] == 'MYSQL') {
+                MysqlDB::config($settings['MYSQL']);
+                $ret = new \App\Domain\Mappers\Mysql\BrandMysqlAdapter();
+            }
+            return $ret;
         },
     ];
     if ($_ENV['DEBUG_ON'] == "true") {
