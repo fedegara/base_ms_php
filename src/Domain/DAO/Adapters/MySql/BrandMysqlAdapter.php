@@ -18,7 +18,7 @@ use Cratia\ORM\DQL\Table;
 
 class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandMapper, IBrandAdapter
 {
-    const TABLE = "brands";
+    const TABLE = "brand";
 
     /**
      * BrandMysqlAdapter constructor.
@@ -37,7 +37,7 @@ class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandMapper, IBrand
 
     public function parseBrand(array $data): Brand
     {
-        return new Brand($data['id'],$data['name'],$data['url_name']);
+        return new Brand($data['id'],$data['name'],$data['url_name']??'');
     }
 
 
