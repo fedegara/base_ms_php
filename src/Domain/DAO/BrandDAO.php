@@ -34,7 +34,7 @@ class BrandDAO implements IBrandDAO
     public function fetchAll(): array
     {
         return array_map(function($row){
-            return $this->adapter->parseBrand($row);
+            return $this->adapter->getMapper()->parseBrand($row);
         },$this->adapter->fetchAll()->getData());
     }
 

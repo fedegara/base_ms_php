@@ -4,11 +4,8 @@
 namespace App\Domain\DAO\Adapters\Mysql;
 
 
-
-
-use App\Domain\DTO\Brand;
+use App\Domain\DAO\Mapper\Mysql\BrandMysqlMapper;
 use App\Domain\Interfaces\DTO\IBrandAdapter;
-use App\Domain\Interfaces\Mapper\IBrandMapper;
 use App\Infraestructure\Persistence\Mongo\MySqlAdapterBase;
 use App\Infraestructure\Persistence\Mongo\Queryable\QueryResponse;
 use App\Infraestructure\Persistence\MySql\MySqlConnection;
@@ -16,15 +13,17 @@ use Cratia\ORM\DBAL\QueryExecute;
 use Cratia\ORM\DQL\Query;
 use Cratia\ORM\DQL\Table;
 
-class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandMapper, IBrandAdapter
+class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandAdapter
 {
     const TABLE = "brand";
+    private $mapper;
 
     /**
      * BrandMysqlAdapter constructor.
      */
     public function __construct(MySqlConnection $connection)
     {
+        $this->mapper = new BrandMysqlMapper();
         parent::__construct($connection,new Table(self::TABLE));
     }
 
@@ -35,9 +34,12 @@ class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandMapper, IBrand
         return $this->read($query);
     }
 
-    public function parseBrand(array $data): Brand
+    /**
+     * @return BrandMysqlMapper
+     */
+    public function getMapper(): BrandMysqlMapper
     {
-        return new Brand($data['id'],$data['name'],$data['url_name']??'');
+        return $this->mapper;
     }
 
 

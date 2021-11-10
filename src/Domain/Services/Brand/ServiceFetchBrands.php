@@ -4,9 +4,11 @@
 namespace App\Domain\Services\Brand;
 
 
+use App\Domain\DAO\Adapters\Mysql\BrandMysqlAdapter;
 use App\Domain\DAO\BrandDAO;
 use App\Domain\DTO\Brand;
 use App\Domain\Interfaces\DTO\IBrandAdapter;
+use App\Domain\Interfaces\Mapper\IBrandMapper;
 
 final class ServiceFetchBrands
 {
@@ -29,6 +31,5 @@ final class ServiceFetchBrands
     {
         return $this->brandDao->fetchAll();
     }
-
 
 }
