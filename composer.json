@@ -34,7 +34,10 @@
     "ext-memcached": "*",
     "ext-openssl": "*",
     "bunkerdb/date_range": "1.0.5",
+    "cratia/adapter-mysql": "^0.2.5",
     "cratia/core-api-rest": ">=0.5",
+    "cratia/interface-adapter": "^0.2.2",
+    "cratia/orm-dql": "^0.4.7",
     "cratia/pipeline": ">=0.7",
     "dabreu/api-client-skeleton": "^2",
     "doctrine/dbal": "^2.10",
@@ -48,8 +51,6 @@
     "symfony/dotenv": "^5.0",
     "symfony/var-dumper": "^5.0",
     "symfony/yaml": "^5.0"
-  },
-  "require-dev": {
   },
   "config": {
     "process-timeout": 0,

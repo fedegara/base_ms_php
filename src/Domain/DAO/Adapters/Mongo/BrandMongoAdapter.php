@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Domain\Mappers\Mongo;
+namespace App\Domain\DAO\Adapters\Mongo;
 
 use App\Domain\DTO\Brand;
 use App\Domain\Error\DataNotFound;

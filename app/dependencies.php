@@ -1,11 +1,14 @@
 <?php
 declare(strict_types=1);
 
+use App\Domain\DAO\Adapters\Mongo\BrandMongoAdapter;
+use App\Domain\DAO\Adapters\Mysql\BrandMysqlAdapter;
 use App\Domain\Events\Subscribers\ActiveRecord;
 use App\Domain\Events\Subscribers\Adapter;
 use App\Domain\Inheritances\LogInterfaces\LogdnaInterface;
 use App\Domain\Interfaces\DAO\IBrandDAO;
 use App\Infraestructure\Persistence\Mongo\MongoConnection;
+use App\Infraestructure\Persistence\MySql\MySqlConnection;
 use Cratia\Rest\Dependencies\AppManager;
 use Cratia\Rest\Dependencies\DebugBag;
 use Cratia\Rest\Dependencies\ErrorBag;
@@ -51,12 +54,16 @@ return function (ContainerBuilder $containerBuilder) {
         },
 
         MongoConnection::class => function (ContainerInterface $c) {
-            //Implements this manager to show querys of mongo
-            $eventManager = $c->get(EventManager::class);
-            $logger = $c->get(LoggerInterface::class);
             $settings = $c->get('settings');
 
             return MongoConnection::getInstance($settings['MONGO_DSN_READER'], $settings['MONGO_DB_NAME'], $settings['MONGO_AMAZON']);
+        },
+
+        MySqlConnection::class => function (ContainerInterface $c) {
+            $eventManager = $c->get(EventManager::class);
+            $logger = $c->get(LoggerInterface::class);
+            $settings = $c->get('settings');
+            return new MySqlConnection($settings['MYSQL_DSN'],$logger, $eventManager);
         },
 
         LogdnaInterface::class => function (ContainerInterface $c) {
@@ -69,8 +76,12 @@ return function (ContainerBuilder $containerBuilder) {
             return $logger;
         },
 
+//        IBrandDAO::class => function (ContainerInterface $container) {
+//            return new BrandMongoAdapter($container->get(MongoConnection::class));
+//        },
+
         IBrandDAO::class => function (ContainerInterface $container) {
-            return new \App\Domain\Mappers\Mongo\BrandMongoAdapter($container->get(MongoConnection::class));
+            return new BrandMysqlAdapter($container->get(MySqlConnection::class));
         },
     ];
     if ($_ENV['DEBUG_ON'] == "true") {

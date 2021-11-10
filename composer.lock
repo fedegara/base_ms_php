@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38206b480a8d2faacc509b94ec859382",
+    "content-hash": "aa02c7145b0eef27fbf2d4372d044b67",
     "packages": [
         {
             "name": "bunkerdb/date_range",
@@ -225,6 +225,54 @@
             "time": "2021-08-17T13:49:14+00:00"
         },
         {
+            "name": "cratia/adapter-mysql",
+            "version": "0.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carlos-ratia/adapter-mysql.git",
+                "reference": "91351a78aeffb1977472e8865d65108b3a1f8ea9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carlos-ratia/adapter-mysql/zipball/91351a78aeffb1977472e8865d65108b3a1f8ea9",
+                "reference": "91351a78aeffb1977472e8865d65108b3a1f8ea9",
+                "shasum": ""
+            },
+            "require": {
+                "cratia/adapter-sql-performance": ">=0.1",
+                "cratia/common-functions": ">=0.1",
+                "cratia/interface-adapter": ">=0.1",
+                "cratia/pipeline": ">=0.7",
+                "ext-json": "*",
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "psr-4": {
+                    "Cratia\\ORM\\DBAL\\Adapter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carlos Ratia",
+                    "email": "cratia.github@gmail.com"
+                }
+            ],
+            "description": "Implementation over abstraction IAdapter for creating and execution Doctrine\\DBAL\\Connection instances over driver Mysql",
+            "support": {
+                "issues": "https://github.com/carlos-ratia/adapter-mysql/issues",
+                "source": "https://github.com/carlos-ratia/adapter-mysql/tree/master"
+            },
+            "time": "2020-02-27T22:06:38+00:00"
+        },
+        {
             "name": "cratia/adapter-sql-performance",
             "version": "0.1.3",
             "source": {
@@ -396,6 +444,10 @@
                 }
             ],
             "description": "Define abstraction para crear y ejecutar sobre instancias de Doctrine\\DBAL\\Connection",
+            "support": {
+                "issues": "https://github.com/carlos-ratia/interface-adapter/issues",
+                "source": "https://github.com/carlos-ratia/interface-adapter/tree/master"
+            },
             "time": "2020-02-26T18:12:12+00:00"
         },
         {
@@ -492,6 +544,10 @@
                 }
             ],
             "description": "DQL stands for Dialect Query Language and is an Object Query, DQL provides powerful querying capabilities over your object model.",
+            "support": {
+                "issues": "https://github.com/carlos-ratia/orm-dql/issues",
+                "source": "https://github.com/carlos-ratia/orm-dql/tree/0.4.7"
+            },
             "time": "2021-02-01T15:50:38+00:00"
         },
         {
@@ -3106,5 +3162,6 @@
         "ext-memcached": "*",
         "ext-openssl": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
 }

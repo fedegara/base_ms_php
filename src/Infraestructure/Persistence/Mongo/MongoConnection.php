@@ -72,17 +72,6 @@ class MongoConnection
                 self::parseResponse($value);
             }
         });
-
-        //ALTERNATIVA 1:
-        //        $result = $connection->read($query);
-        //        $result->setTypeMap(['root'=>'array']);
-        //
-        //        die(dump($result->toArray()));
-
-        //ALTERNATIVA 2:
-        //        $result = json_decode(json_encode($connection->read($query)->toArray(),true));
-        //
-        //        die(dump($result));
     }
 
     /**

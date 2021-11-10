@@ -37,6 +37,7 @@ return function (ContainerBuilder $containerBuilder) {
             "MONGO_DSN_READER" => $_ENV['MONGO_DSN_READER'],
             "MONGO_DB_NAME" => $_ENV['MONGO_DB_NAME'],
             "MONGO_AMAZON" => $_ENV['MONGO_AMAZON'] === "true",
+            "MYSQL_DSN" => $_ENV['MYSQL_DSN'],
         ],
     ]);
 };
