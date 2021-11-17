@@ -169,49 +169,4 @@ final class Query
         return $options;
     }
 
-    /**
-     * @return null
-     */
-    public function getOType()
-    {
-        return $this->oType;
-    }
-
-    /**
-     * @param null $oType
-     * @return Query
-     */
-    public function setOType($oType)
-    {
-        $this->oType = $oType;
-        return $this;
-    }
-
-    /**
-     * @return null
-     */
-    public function getOId()
-    {
-        return $this->oId;
-    }
-
-    /**
-     * @param null $oId
-     * @return Query
-     */
-    public function setOId($oId)
-    {
-        $this->oId = $oId;
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function clearOrderBy(): self
-    {
-        $this->order = [];
-        return $this;
-    }
-
 }
