@@ -33,9 +33,6 @@ class BasicScopeContext implements MiddlewareInterface
             if (!is_null($route->getArgument('oid'))) {
                 ScopeContext::getInstance()->setOId($route->getArgument('oid'));
             }
-            if (!is_null($route->getArgument('organization_id'))) {
-                ScopeContext::getInstance()->setOrganizationId($route->getArgument('organization_id'));
-            }
             if (!is_null($route->getArgument('period_id'))) {
                 ScopeContext::getInstance()->setPeriodId($route->getArgument('period_id'));
             }
@@ -43,6 +40,9 @@ class BasicScopeContext implements MiddlewareInterface
                 ScopeContext::getInstance()->setPeriodStart($route->getArgument('period_start'));
             }
             if (!is_null($route->getArgument('period_end'))) {
+                ScopeContext::getInstance()->setPeriodEnd($route->getArgument('period_end'));
+            }
+            if (!is_null($route->getArgument('entity'))) {
                 ScopeContext::getInstance()->setPeriodEnd($route->getArgument('period_end'));
             }
         }

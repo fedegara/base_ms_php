@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa02c7145b0eef27fbf2d4372d044b67",
+    "content-hash": "aad25c5f9d862dfe345e4d13f5c77c62",
     "packages": [
         {
             "name": "bunkerdb/date_range",
@@ -444,10 +444,6 @@
                 }
             ],
             "description": "Define abstraction para crear y ejecutar sobre instancias de Doctrine\\DBAL\\Connection",
-            "support": {
-                "issues": "https://github.com/carlos-ratia/interface-adapter/issues",
-                "source": "https://github.com/carlos-ratia/interface-adapter/tree/master"
-            },
             "time": "2020-02-26T18:12:12+00:00"
         },
         {
@@ -544,10 +540,6 @@
                 }
             ],
             "description": "DQL stands for Dialect Query Language and is an Object Query, DQL provides powerful querying capabilities over your object model.",
-            "support": {
-                "issues": "https://github.com/carlos-ratia/orm-dql/issues",
-                "source": "https://github.com/carlos-ratia/orm-dql/tree/0.4.7"
-            },
             "time": "2021-02-01T15:50:38+00:00"
         },
         {
@@ -3149,7 +3141,50 @@
             "time": "2021-07-29T06:20:01+00:00"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "phpstan/phpstan",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "bcea0ae85868a89d5789c75f012c93129f842934"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/bcea0ae85868a89d5789c75f012c93129f842934",
+                "reference": "bcea0ae85868a89d5789c75f012c93129f842934",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "time": "2021-11-09T12:41:09+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
@@ -3162,6 +3197,5 @@
         "ext-memcached": "*",
         "ext-openssl": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "platform-dev": []
 }
