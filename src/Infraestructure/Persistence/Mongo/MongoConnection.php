@@ -4,6 +4,7 @@
 namespace App\Infraestructure\Persistence\Mongo;
 
 
+use App\Context\ScopeContext;
 use App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages\Aggregate;
 use App\Infraestructure\Persistence\Mongo\Queryable\Query;
 use Exception;
@@ -99,25 +100,6 @@ class MongoConnection
     }
 
 
-    public function upsert(array $new_value, string $collection): UpdateResult
-    {
-        $this->changeCollection($collection);
-        $filter = [
-            'instance' => INST_NAME,
-            'internalMediaId' => $new_value['internalMediaId']
-        ];
-        try {
-            return $this->collection->updateOne(
-                $filter,
-                [
-                    '$set' => $new_value,
-                    '$currentDate' => ['lastModified' => true],
-                ], ['upsert' => true]
-            );
-        } catch (Exception $ex) {
-            throw $ex;
-        }
-    }
 
     /**
      * Change collection
