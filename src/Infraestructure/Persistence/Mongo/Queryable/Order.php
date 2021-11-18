@@ -14,15 +14,16 @@ class Order
     /** @var string */
     private $field;
 
-    /** @var string */
+    /** @var int */
     private $direction;
 
     /**
-     * MongoOrder constructor.
+     * Order constructor.
      * @param string $field
-     * @param string $direction
+     * @param int $direction
+     * @throws Exception
      */
-    public function __construct(string $field, string $direction = self::ORDER_ASC)
+    public function __construct(string $field, int $direction = self::ORDER_ASC)
     {
 
         $this->field = $field;
@@ -41,9 +42,9 @@ class Order
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getDirection(): string
+    public function getDirection(): int
     {
         return $this->direction;
     }

@@ -34,8 +34,9 @@ class Status extends Action
 
     public function testMongoDB()
     {
-        /** @var MongoConnection $mongo_connection */
+
         try{
+            /** @var MongoConnection $mongo_connection */
             $mongo_connection = $this->getContainer()->get(MongoConnection::class);
             $mongo_connection->listCollections();
             return true;

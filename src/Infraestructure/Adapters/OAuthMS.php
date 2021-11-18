@@ -54,15 +54,9 @@ class OAuthMS
             ]);
     }
 
-
-
-    /***   Actions   ***/
-
-
     /**
      * @param string $token
      * @return ApiResponse
-     * @throws InvalidArgumentException
      * @throws Exception
      */
     public function validate(string $token)

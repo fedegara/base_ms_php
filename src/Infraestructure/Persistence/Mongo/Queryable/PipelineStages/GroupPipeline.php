@@ -33,7 +33,7 @@ class GroupPipeline extends BasePipeline
     }
 
     /**
-     * @param $id
+     * @param mixed $id
      * @return $this
      */
     public function addId($id): self

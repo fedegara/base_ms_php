@@ -125,14 +125,16 @@ class UserContext implements JsonSerializable
     }
 
     /**
-     * @param $lang
-     * @return $this
+     * @param string|null $lang
+     * @return UserContext
      */
-    public function setLang($lang): UserContext
+    public function setLang(?string $lang): self
     {
         $this->lang = $lang;
         return $this;
     }
+
+
 
     /**
      * Specify data which should be serialized to JSON

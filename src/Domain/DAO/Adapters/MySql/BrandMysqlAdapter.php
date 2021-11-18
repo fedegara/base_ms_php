@@ -16,7 +16,7 @@ use Cratia\ORM\DBAL\QueryExecute;
 use Cratia\ORM\DQL\Query;
 use Cratia\ORM\DQL\Table;
 
-class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandMapper, IBrandAdapter
+class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandAdapter
 {
     const TABLE = "brands";
 
@@ -34,11 +34,4 @@ class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandMapper, IBrand
         $query->setLimit(Query::NO_LIMIT);
         return $this->read($query);
     }
-
-    public function parseBrand(array $data): Brand
-    {
-        return new Brand($data['id'],$data['name'],$data['url_name']);
-    }
-
-
 }

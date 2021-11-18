@@ -19,7 +19,7 @@ final class ServiceFetchBrands
 
     public function __construct(IBrandAdapter $adapterBrand)
     {
-        $this->brandDao = new BrandDAO($adapterBrand);
+        $this->brandDao = new BrandDAO($adapterBrand, new \App\Domain\DAO\Mappers\Brand());
     }
 
     /**

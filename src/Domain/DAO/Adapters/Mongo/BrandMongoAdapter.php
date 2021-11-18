@@ -12,7 +12,7 @@ use App\Infraestructure\Persistence\Mongo\MongoConnection;
 use App\Infraestructure\Persistence\Mongo\Queryable\Query;
 use App\Infraestructure\Persistence\Mongo\Queryable\QueryResponse;
 
-final class BrandMongoAdapter extends MongoAdapterBase implements IBrandAdapter, IBrandMapper
+final class BrandMongoAdapter extends MongoAdapterBase implements IBrandAdapter
 {
     const COLLECTION = "brands";
 
@@ -36,10 +36,7 @@ final class BrandMongoAdapter extends MongoAdapterBase implements IBrandAdapter,
         return $data;
     }
 
-    public function parseBrand(array $data): Brand
-    {
-        return new Brand($data['id'],$data['name'],$data['url_name']);
-    }
+
 
 
 }

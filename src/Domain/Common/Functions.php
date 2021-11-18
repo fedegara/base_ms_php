@@ -16,28 +16,10 @@ final class Functions
     const DECIMAL_POINT = ",";
     const THOUSANDS_POINT = ".";
 
-    public static function customNumberFormat($number, $is_money = false, $decimals = 0, $str_after_number = null, $str_before_number = null)
-    {
-        if (number_format($number, $decimals) == 0.00 || number_format($number, $decimals) == 0) {
-            return '-';
-        }
-        else {
-            $number = self::format_big_number($number, $is_money, $decimals);
-            if (!is_null($str_before_number)) {
-                $number = $str_before_number . ' ' . $number;
-            }
-            if (!is_null($str_after_number)) {
-                if (trim($str_after_number) === '%') {
-                    $number = self::format_percentage_number($number);
-                }
-                $number = $number . ' ' . $str_after_number;
-            }
-            return $number;
-        }
-    }
+
 
     /**
-     * @param $number
+     * @param mixed $number
      * @param false $type
      * @param int $decimals
      * @param false $exclude_unnecessary_decimals
@@ -103,7 +85,7 @@ final class Functions
     }
 
     /**
-     * @param $num
+     * @param mixed $num
      * @param bool $reformat
      * @return array|int|mixed|string|string[]
      */
@@ -115,17 +97,6 @@ final class Functions
         return str_replace(self::DECIMAL_POINT . '00', '', $num);
     }
 
-    /*
-Example:
-fillMissingDates(
-    $result,
-    new DateRange("2021-01-01","2021-01-31"),
-    new DateInterval("P1D"),
-    function (DateTime $date) {
-        return  ['date' => $date->format('Y-m-d'),"followers"=>0];
-    }
-);
-*/
 
     /**
      * FillMissingDate predecessor (callback mapper like)

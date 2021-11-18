@@ -68,7 +68,7 @@ abstract class MongoAdapterBase
             throw new Exception("To retrieve documents from MongoDB you must set the connection to the DAO");
         }
 
-        $data = $this->connection->aggregate($aggregate)->toArray();
+        $data = iterator_to_array($this->connection->aggregate($aggregate));
 
         $this->connection->parseResponse($data);
 
