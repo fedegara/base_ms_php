@@ -12,13 +12,12 @@ use App\Domain\DTO\Utils\Cipher\GPG;
 use App\Domain\DTO\Utils\Cipher\SSL;
 use App\Infraestructure\Adapters\QueueAdapter;
 use App\Infraestructure\Persistence\Mongo\MongoConnection;
+use App\Infraestructure\Persistence\MySql\MySqlConnection;
 use Cratia\Rest\Actions\Action;
 use Exception;
-use Slim\Exception\HttpException;
 
 class Status extends Action
 {
-    private $test_content = "Hi. This is a test for all tests sections";
 
     /**
      * @inheritDoc
@@ -27,8 +26,10 @@ class Status extends Action
     {
 
        $mongoStatus = $this->testMongoDB();
+       $mySqlStatus = $this->testMySql();
         return [
-            'MongoDB' => $mongoStatus === true ? 'OK' : $mongoStatus
+            'MongoDB' => $mongoStatus === true ? 'OK' : $mongoStatus,
+            'Mysql' => $mongoStatus === true ? 'OK' : $mongoStatus
         ];
     }
 
@@ -39,6 +40,21 @@ class Status extends Action
             /** @var MongoConnection $mongo_connection */
             $mongo_connection = $this->getContainer()->get(MongoConnection::class);
             $mongo_connection->listCollections();
+            return true;
+        }catch (Exception $ex){
+            throw new Exception("MongoDB: ERROR -> [EXCEPTION] {$ex->getMessage()}");
+
+        }
+
+    }
+
+    public function testMySql()
+    {
+
+        try{
+            /** @var MySqlConnection $mysql_connection */
+            $mysql_connection = $this->getContainer()->get(MySqlConnection::class);
+            $mysql_connection->query("show tables");
             return true;
         }catch (Exception $ex){
             throw new Exception("MongoDB: ERROR -> [EXCEPTION] {$ex->getMessage()}");

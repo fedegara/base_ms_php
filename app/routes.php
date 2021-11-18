@@ -16,7 +16,7 @@ return function (App $app) {
     $app->get('/ping', Ping::class);
     $app->get('/status', Status::class);
     $app->get('/error', Error::class);
-    $app->get('/pong', Ping::class)->setArgument("auth","true");
+    $app->get('/pong', Ping::class)->setArgument("auth", "true");
 
     $auth_scoped_routes = [
         [
@@ -27,22 +27,26 @@ return function (App $app) {
     ];
 
     $auth_scoped_period_routes = [
-//        [
-//            'method' => ["GET"],
-//            'route' => 'brands[/]',
-//            'callable' => Get::class
-//        ]
+        [
+            'method' => ["GET"],
+            'route' => 'brands[/]',
+            'callable' => Get::class
+        ]
     ];
+
+    /** ------------------------------------------------------------------------------------------------------------------ */
+
 
     $app->group("/", function (RouteCollectorProxy $group) use ($auth_scoped_routes) {
         foreach ($auth_scoped_routes as $route) {
-            $group->map($route['method'], $route['route'], $route['callable'])->setArgument("auth","true");
+            $group->map($route['method'], $route['route'], $route['callable'])->setArgument("auth", "true");
         }
     });
 
+
     $app->group("/instance/{instance}/otype/{otype}/oid/{oid}/entity/{entity_id}/period_id/{period_id}/period_start/{period_start}/period_end/{period_end}/", function (RouteCollectorProxy $group) use ($auth_scoped_period_routes) {
         foreach ($auth_scoped_period_routes as $route) {
-            $group->map($route['method'], $route['route'], $route['callable'])->setArgument("auth","true");
+            $group->map($route['method'], $route['route'], $route['callable'])->setArgument("auth", "true");
         }
     });
 

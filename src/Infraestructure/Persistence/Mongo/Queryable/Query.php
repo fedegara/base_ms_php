@@ -15,16 +15,14 @@ final class Query
     /** @var Filter[] */
     private $filters;
 
-    /** @var Order */
-    private $order;
+    /** @var ?Order */
+    private $order = null;
 
-    /** @var int */
-    private $limit;
+    /** @var ?int */
+    private $limit = null;
 
-    /** @var int */
-    private $offset;
-
-    private $projection;
+    /** @var ?int */
+    private $offset = null;
 
     /**
      * Query constructor.
@@ -103,25 +101,8 @@ final class Query
      */
     public function addFilter($filter): Query
     {
-        if (is_null($this->filters)) {
-            $this->filters = [];
-        }
         $this->filters[] = $filter;
         return $this;
-    }
-
-    public function addProjection($key): Query
-    {
-        $this->projection[$key] = 1;
-        return $this;
-    }
-
-    /**
-     * @return array|null
-     */
-    public function getProjection(): ?array
-    {
-        return $this->projection;
     }
 
     /**
@@ -152,16 +133,12 @@ final class Query
         if ($this->limit != Query::NO_LIMIT) {
             if (!is_null($this->limit)) {
                 $options['limit'] = $this->limit;
-            }
-            else {
+            } else {
                 $options['limit'] = 20;
             }
         }
         if (!is_null($this->offset)) {
             $options['skip'] = $this->offset;
-        }
-        if (!is_null($this->projection)) {
-            $options['projection'] = $this->projection;
         }
         if (!empty($this->order)) {
             $options['sort'] = $this->order->getOrderBy();

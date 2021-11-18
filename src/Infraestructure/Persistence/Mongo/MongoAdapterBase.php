@@ -64,9 +64,6 @@ abstract class MongoAdapterBase
      */
     public function aggregate(Aggregate $aggregate): QueryResponse
     {
-        if (is_null($this->connection)) {
-            throw new Exception("To retrieve documents from MongoDB you must set the connection to the DAO");
-        }
 
         $data = iterator_to_array($this->connection->aggregate($aggregate));
 
@@ -83,9 +80,6 @@ abstract class MongoAdapterBase
      */
     protected function fetch(Query $query): QueryResponse
     {
-        if (is_null($this->connection)) {
-            throw new Exception("To retrieve documents from MongoDB you must set the connection to the DAO");
-        }
 
         $data = $this->connection->read($query)->toArray();
         $this->connection->parseResponse($data);

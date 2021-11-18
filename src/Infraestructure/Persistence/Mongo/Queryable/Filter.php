@@ -130,53 +130,49 @@ class Filter
     public function getFilter(): ?array
     {
         $return = null;
-        if (!is_null($this->getValue())) {
-            switch ($this->getOperator()) {
-                case self::EQUAL:
-                    $return = [$this->getField() => $this->getValue()];
-                    break;
-                case self::MAJOR:
-                    $return = [$this->getField() => ['$gt' => $this->getValue()]];
-                    break;
-                case self::MAJOR_EQUAL:
-                    $return = [$this->getField() => ['$gte' => $this->getValue()]];
-                    break;
-                case self::LESS:
-                    $return = [$this->getField() => ['$lt' => $this->getValue()]];
-                    break;
-                case self::LESS_EQUAL:
-                    $return = [$this->getField() => ['$lte' => $this->getValue()]];
-                    break;
-                case self::IN:
-                    $return = [$this->getField() => ['$in' => $this->getValue()]];
-                    break;
-                case self::NOT_IN:
-                    $return = [$this->getField() => ['$nin' => $this->getValue()]];
-                    break;
-                case self::BETWEEN:
-                    $return = [
-                        $this->getField() =>
-                            [
-                                '$gte' => $this->getValue()['min'],
-                                '$lte' => $this->getValue()['max']
-                            ]
-                    ];
-                    break;
-                case self::CONTAIN:
-                    $return = [$this->getField() => ['$regex' => ".*{$this->getValue()}.*", '$options' => 'i']];
-                    break;
-                case self::GROUP_BY:
-                    $return = [
-                        '$group' => [
-                            $this->getField() => ['$sum' => $this->getValue()]
-                        ],
-                        'count' => ['$sum' => 1]
-                    ];
-                    break;
-            }
-        }
-        else {
-            throw new Exception("Filter must have a value in MongoDB");
+
+        switch ($this->getOperator()) {
+            case self::EQUAL:
+                $return = [$this->getField() => $this->getValue()];
+                break;
+            case self::MAJOR:
+                $return = [$this->getField() => ['$gt' => $this->getValue()]];
+                break;
+            case self::MAJOR_EQUAL:
+                $return = [$this->getField() => ['$gte' => $this->getValue()]];
+                break;
+            case self::LESS:
+                $return = [$this->getField() => ['$lt' => $this->getValue()]];
+                break;
+            case self::LESS_EQUAL:
+                $return = [$this->getField() => ['$lte' => $this->getValue()]];
+                break;
+            case self::IN:
+                $return = [$this->getField() => ['$in' => $this->getValue()]];
+                break;
+            case self::NOT_IN:
+                $return = [$this->getField() => ['$nin' => $this->getValue()]];
+                break;
+            case self::BETWEEN:
+                $return = [
+                    $this->getField() =>
+                        [
+                            '$gte' => $this->getValue()['min'],
+                            '$lte' => $this->getValue()['max']
+                        ]
+                ];
+                break;
+            case self::CONTAIN:
+                $return = [$this->getField() => ['$regex' => ".*{$this->getValue()}.*", '$options' => 'i']];
+                break;
+            case self::GROUP_BY:
+                $return = [
+                    '$group' => [
+                        $this->getField() => ['$sum' => $this->getValue()]
+                    ],
+                    'count' => ['$sum' => 1]
+                ];
+                break;
         }
         return $return;
     }

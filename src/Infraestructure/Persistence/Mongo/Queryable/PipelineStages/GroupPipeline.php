@@ -5,7 +5,6 @@ namespace App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages;
 
 
 use App\Infraestructure\Persistence\Mongo\Queryable\GeneralAction;
-use App\Infraestructure\Persistence\Mongo\Queryable\MultipleGeneralActions;
 use Exception;
 
 class GroupPipeline extends BasePipeline

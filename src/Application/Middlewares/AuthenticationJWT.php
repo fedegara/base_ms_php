@@ -34,7 +34,7 @@ class AuthenticationJWT implements MiddlewareInterface
 
         if ($needAuthentication) {
             $authorization = $request->getHeader('Authorization');
-            if (!is_null($authorization) && !empty($authorization) && is_array($authorization)) {
+            if (!empty($authorization) && is_array($authorization)) {
                 $authorization = $authorization[0];
                 UserContext::getInstance()->setAuthorizationToken($authorization);
                 $_token = trim(str_replace("Bearer", "", $authorization));
@@ -46,7 +46,7 @@ class AuthenticationJWT implements MiddlewareInterface
                 ->getContent()['data'];
 
             // $validation have jwt payload information do whatever you want
-            if (empty($validation) || !$validation) {
+            if (empty($validation) || $validation == false) {
                 throw new Exception('Invalid authentication.', 401);
             }
 

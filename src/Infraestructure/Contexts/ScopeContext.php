@@ -188,6 +188,26 @@ class ScopeContext
     }
 
     /**
+     * @return int
+     */
+    public function getEntityId(): int
+    {
+        return $this->entityId;
+    }
+
+    /**
+     * @param int $entityId
+     * @return ScopeContext
+     */
+    public function setEntityId(int $entityId): self
+    {
+        $this->entityId = $entityId;
+        return $this;
+    }
+
+
+
+    /**
      * @param string $periodEnd
      * @return ScopeContext
      */

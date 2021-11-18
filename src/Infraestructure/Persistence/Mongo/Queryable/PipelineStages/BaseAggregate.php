@@ -9,16 +9,15 @@ abstract class BaseAggregate
 {
     const NO_LIMIT = -1;
 
-    /** @var Order */
-    private $order;
+    /** @var ?Order */
+    private $order = null;
 
-    /** @var int */
-    private $limit;
+    /** @var ?int */
+    private $limit = null;
 
-    /** @var int */
-    private $offset;
+    /** @var ?int */
+    private $offset = null;
 
-    private $projection;
 
     /**
      * @return int
@@ -84,8 +83,7 @@ abstract class BaseAggregate
         $options = [];
         if (!is_null($this->limit)) {
             $options['$limit'] = $this->limit;
-        }
-        else {
+        } else {
             $options['$limit'] = 20;
         }
 

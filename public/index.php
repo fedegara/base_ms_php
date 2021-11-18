@@ -62,12 +62,6 @@ $app->add(new MethodOverrideMiddleware());
 //Add Request Body Parsing Middleware (Necessary from Slim version >= 4.0)
 $app->addBodyParsingMiddleware();
 
-// Create Error Handler
-$errorHandler = new HttpErrorHandlerCors(
-    $app->getContainer(),
-    $app->getCallableResolver(),
-    $app->getResponseFactory()
-);
 
 // Add Error Middleware
 $errorMiddleware = $app->addErrorMiddleware(
@@ -75,7 +69,7 @@ $errorMiddleware = $app->addErrorMiddleware(
     false,
     false
 );
-$errorMiddleware->setDefaultErrorHandler($errorHandler);
+
 
 // Run App & Emit Response
 $app->run();
