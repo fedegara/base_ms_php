@@ -107,8 +107,7 @@ return function (ContainerBuilder $containerBuilder) {
             return $eventManager;
         };
 
-    }
-    else {
+    }else {
         $definitions[EventManager::class] = function (ContainerInterface $c) {
             $eventManager = new EventManager();
             return $eventManager;

@@ -20,43 +20,52 @@ class Status extends Action
 {
 
     /**
-     * @inheritDoc
+     * @return array<string,mixed>
+     * @throws Exception
      */
     protected function action()
     {
 
-       $mongoStatus = $this->testMongoDB();
-       $mySqlStatus = $this->testMySql();
+        $mongoStatus = $this->testMongoDB();
+        $mySqlStatus = $this->testMySql();
         return [
             'MongoDB' => $mongoStatus === true ? 'OK' : $mongoStatus,
-            'Mysql' => $mongoStatus === true ? 'OK' : $mongoStatus
+            'Mysql' => $mySqlStatus === true ? 'OK' : $mySqlStatus
         ];
     }
 
+    /**
+     * @return bool
+     * @throws Exception
+     */
     public function testMongoDB()
     {
 
-        try{
+        try {
             /** @var MongoConnection $mongo_connection */
             $mongo_connection = $this->getContainer()->get(MongoConnection::class);
             $mongo_connection->listCollections();
             return true;
-        }catch (Exception $ex){
+        } catch (Exception $ex) {
             throw new Exception("MongoDB: ERROR -> [EXCEPTION] {$ex->getMessage()}");
 
         }
 
     }
 
+    /**
+     * @return bool
+     * @throws Exception
+     */
     public function testMySql()
     {
 
-        try{
+        try {
             /** @var MySqlConnection $mysql_connection */
             $mysql_connection = $this->getContainer()->get(MySqlConnection::class);
             $mysql_connection->query("show tables");
             return true;
-        }catch (Exception $ex){
+        } catch (Exception $ex) {
             throw new Exception("MongoDB: ERROR -> [EXCEPTION] {$ex->getMessage()}");
 
         }

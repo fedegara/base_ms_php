@@ -47,6 +47,24 @@ class ActiveRecord implements EventSubscriber
     }
 
     /**
+     * @return DebugBag
+     */
+    public function getDebugBag(): DebugBag
+    {
+        return $this->debugBag;
+    }
+
+    /**
+     * @return ErrorBag
+     */
+    public function getErrorBag(): ErrorBag
+    {
+        return $this->errorBag;
+    }
+
+
+
+    /**
      * @inheritDoc
      */
     public function getSubscribedEvents()

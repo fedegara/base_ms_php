@@ -18,7 +18,7 @@ final class Functions
 
 
     /**
-     * @param int|string $number
+     * @param mixed $number
      * @param bool $type
      * @param int $decimals
      * @param bool $exclude_unnecessary_decimals

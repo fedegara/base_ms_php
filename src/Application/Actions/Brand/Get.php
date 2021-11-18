@@ -22,7 +22,7 @@ class Get extends Action
 {
 
     /**
-     * @return array
+     * @return \App\Domain\DTO\Brand[]|array|object
      */
     protected function action()
     {
