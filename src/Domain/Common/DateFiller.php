@@ -54,7 +54,7 @@ final class DateFiller
     {
         $ret = [];
         $star_date = new DateTime();
-        $star_date->setISODate($date->format('Y'), $date->format('W'));
+        $star_date->setISODate(intval($date->format('Y')), intval($date->format('W')));
         $ret['start'] = $star_date->setTime(0, 0, 0, 0);
 
         $end_date = clone $star_date;

@@ -17,12 +17,11 @@ final class Functions
     const THOUSANDS_POINT = ".";
 
 
-
     /**
-     * @param mixed $number
-     * @param false $type
+     * @param int|string $number
+     * @param bool $type
      * @param int $decimals
-     * @param false $exclude_unnecessary_decimals
+     * @param bool $exclude_unnecessary_decimals
      * @return array|int|mixed|string|string[]
      */
     public static function format_big_number(

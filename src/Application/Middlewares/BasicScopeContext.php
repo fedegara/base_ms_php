@@ -31,7 +31,7 @@ class BasicScopeContext implements MiddlewareInterface
                 ScopeContext::getInstance()->setOType($route->getArgument('otype'));
             }
             if (!is_null($route->getArgument('oid'))) {
-                ScopeContext::getInstance()->setOId($route->getArgument('oid'));
+                ScopeContext::getInstance()->setOId(intval($route->getArgument('oid')));
             }
             if (!is_null($route->getArgument('period_id'))) {
                 ScopeContext::getInstance()->setPeriodId($route->getArgument('period_id'));
