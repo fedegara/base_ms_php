@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-use App\Domain\DAO\Adapters\Mongo\BrandMongoAdapter;
-use App\Domain\DAO\Adapters\Mysql\BrandMysqlAdapter;
+
+
 use App\Domain\Events\Subscribers\ActiveRecord;
 use App\Domain\Events\Subscribers\Adapter;
 use App\Domain\Inheritances\LogInterfaces\LogdnaInterface;
 use App\Domain\Interfaces\DAO\IBrandDAO;
+use App\Infraestructure\Adapters\Mysql\BrandMysqlAdapter;
 use App\Infraestructure\Persistence\Mongo\MongoConnection;
 use App\Infraestructure\Persistence\MySql\MySqlConnection;
 use Cratia\Rest\Dependencies\AppManager;
@@ -76,13 +77,13 @@ return function (ContainerBuilder $containerBuilder) {
             return $logger;
         },
 
-        IBrandDAO::class => function (ContainerInterface $container) {
-            return new BrandMongoAdapter($container->get(MongoConnection::class));
-        },
-
 //        IBrandDAO::class => function (ContainerInterface $container) {
-//            return new BrandMysqlAdapter($container->get(MySqlConnection::class));
+//            return new BrandMongoAdapter($container->get(MongoConnection::class));
 //        },
+
+        IBrandDAO::class => function (ContainerInterface $container) {
+            return new BrandMysqlAdapter($container->get(MySqlConnection::class));
+        },
     ];
     if ($_ENV['DEBUG_ON'] == "true") {
         $definitions[ErrorBag::class] = function () {

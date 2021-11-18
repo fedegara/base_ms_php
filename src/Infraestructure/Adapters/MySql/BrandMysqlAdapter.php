@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Domain\DAO\Adapters\Mysql;
+namespace App\Infraestructure\Adapters\Mysql;
 
-use App\Domain\DTO\Brand;
-use App\Domain\Interfaces\DTO\IBrandAdapter;
-use App\Domain\Interfaces\Mapper\IBrandMapper;
+use App\Infraestructure\Interfaces\DTO\IBrandAdapter;
 use App\Infraestructure\Persistence\Mongo\MySqlAdapterBase;
 use App\Infraestructure\Persistence\Mongo\Queryable\QueryResponse;
 use App\Infraestructure\Persistence\MySql\MySqlConnection;
-use Cratia\ORM\DBAL\QueryExecute;
 use Cratia\ORM\DQL\Query;
 use Cratia\ORM\DQL\Table;
 

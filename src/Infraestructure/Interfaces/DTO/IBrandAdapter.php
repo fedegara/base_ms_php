@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Interfaces\DTO;
+namespace App\Infraestructure\Interfaces\DTO;
 
 use App\Infraestructure\Persistence\Mongo\Queryable\QueryResponse;
 

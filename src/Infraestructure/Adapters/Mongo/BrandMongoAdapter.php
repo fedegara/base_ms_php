@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Domain\DAO\Adapters\Mongo;
+namespace App\Infraestructure\Adapters\Mongo;
 
-use App\Domain\DTO\Brand;
 use App\Domain\Error\DataNotFound;
-use App\Domain\Interfaces\DTO\IBrandAdapter;
-use App\Domain\Interfaces\Mapper\IBrandMapper;
+use App\Infraestructure\Interfaces\DTO\IBrandAdapter;
 use App\Infraestructure\DBAL\DAO\MongoAdapterBase;
 use App\Infraestructure\Persistence\Mongo\MongoConnection;
 use App\Infraestructure\Persistence\Mongo\Queryable\Query;

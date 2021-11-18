@@ -4,7 +4,7 @@ namespace App\Domain\Services\Brand;
 
 use App\Domain\DAO\BrandDAO;
 use App\Domain\DTO\Brand;
-use App\Domain\Interfaces\DTO\IBrandAdapter;
+use App\Infraestructure\Interfaces\DTO\IBrandAdapter;
 
 final class ServiceFetchBrands
 {
@@ -16,7 +16,7 @@ final class ServiceFetchBrands
 
     public function __construct(IBrandAdapter $adapterBrand)
     {
-        $this->brandDao = new BrandDAO($adapterBrand, new \App\Domain\DAO\Mappers\Brand());
+        $this->brandDao = new BrandDAO($adapterBrand, new \App\Infraestructure\Mappers\Mongo\Brand());
     }
 
     /**

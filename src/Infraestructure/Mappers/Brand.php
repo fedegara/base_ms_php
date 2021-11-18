@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\DAO\Mappers;
+namespace App\Infraestructure\Mappers\Mongo;
 
-use App\Domain\Interfaces\Mapper\IBrandMapper;
+use App\Infraestructure\Interfaces\Mapper\IBrandMapper;
 
 class Brand implements IBrandMapper
 {

@@ -12,3 +12,4 @@ vendor/*
 migrations.yml
 dump/*
 ./_log
+.php-cs-fixer.cache

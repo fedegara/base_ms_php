@@ -2,10 +2,10 @@
 
 namespace App\Domain\DAO;
 
-use App\Domain\DTO\Brand;
+
 use App\Domain\Interfaces\DAO\IBrandDAO;
-use App\Domain\Interfaces\DTO\IBrandAdapter;
-use App\Domain\Interfaces\Mapper\IBrandMapper;
+use App\Infraestructure\Interfaces\DTO\IBrandAdapter;
+use App\Infraestructure\Interfaces\Mapper\IBrandMapper;
 
 class BrandDAO implements IBrandDAO
 {

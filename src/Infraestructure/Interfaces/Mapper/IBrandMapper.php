@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\Interfaces\Mapper;
+namespace App\Infraestructure\Interfaces\Mapper;
 
 use App\Domain\DTO\Brand;
 
