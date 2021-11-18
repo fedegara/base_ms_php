@@ -37,7 +37,7 @@ class AuthenticationJWT implements MiddlewareInterface
             if (!is_null($authorization) && !empty($authorization) && is_array($authorization)) {
                 $authorization = $authorization[0];
                 UserContext::getInstance()->setAuthorizationToken($authorization);
-                $_token = trim(str_replace("Bearer","",$authorization));
+                $_token = trim(str_replace("Bearer", "", $authorization));
             } else {
                 throw new Exception('Invalid authentication.', 401);
             }
@@ -67,15 +67,6 @@ class AuthenticationJWT implements MiddlewareInterface
         // resolve by route
         /** @var Route $route */
         $route = $request->getAttributes()['__route__'];
-        $authentication = false;
-        if (isset($route->authentication)){
-            $authentication = $route->authentication;
-        }else {
-            $routeGroups = $route->getGroups();
-            if (count($routeGroups) > 0) {
-                $authentication = $routeGroups[0]->authentication;
-            }
-        }
-        return (bool) $authentication;
+        return $route->getArgument('auth') == "true" ? true : false;
     }
 }
