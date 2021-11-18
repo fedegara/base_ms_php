@@ -30,7 +30,7 @@ final class DateFiller
     }
 
     /**
-     * @return DateTime[]
+     * @return array
      * @throws Exception
      */
     public function buildWeeks(): array

@@ -24,16 +24,12 @@ class FilterGroup
 
     /**
      * FilterGroup constructor.
-     * @param Filter|null $filter
      * @param bool $mode
      */
-    public function __construct(Filter $filter = null, $mode = self::MODE_INCLUSIVE)
+    public function __construct($mode = self::MODE_INCLUSIVE)
     {
         $this->setMode($mode);
         $this->filters = [];
-        if (!is_null($filter)) {
-            $this->setFilters($filter);
-        }
     }
 
     /**
@@ -76,16 +72,6 @@ class FilterGroup
     public function getFilters(): array
     {
         return $this->filters;
-    }
-
-    /**
-     * @param Filter $filters
-     * @return $this
-     */
-    public function setFilters(Filter $filters)
-    {
-        $this->filters = $filters;
-        return $this;
     }
 
     /**
