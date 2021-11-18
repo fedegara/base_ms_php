@@ -2,7 +2,6 @@
 
 namespace App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages;
 
-
 use App\Infraestructure\Persistence\Mongo\Queryable\Sort;
 
 class SortPipeline extends BasePipeline

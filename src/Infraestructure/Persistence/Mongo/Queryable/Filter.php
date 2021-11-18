@@ -1,29 +1,26 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable;
-
 
 use Exception;
 
 class Filter
 {
-
-    const EQUAL = '==';
-    const MAJOR_EQUAL = '>=';
-    const MAJOR = '>';
-    const LESS_EQUAL = '<=';
-    const LESS = '<';
-    const DISTINCT = '!=';
-    const BETWEEN = '~';
-    const IN = '^';
-    const NOT_IN = '!^';
-    const LIKE = '@@';
-    const IS_NULL = 'IS NULL';
-    const IS_NOT_NULL = 'IS NOT NULL';
-    const CONTAIN = '@@';
-    const NOT_CONTAIN = '!@@';
-    const GROUP_BY = 'GROUP BY';
+    public const EQUAL = '==';
+    public const MAJOR_EQUAL = '>=';
+    public const MAJOR = '>';
+    public const LESS_EQUAL = '<=';
+    public const LESS = '<';
+    public const DISTINCT = '!=';
+    public const BETWEEN = '~';
+    public const IN = '^';
+    public const NOT_IN = '!^';
+    public const LIKE = '@@';
+    public const IS_NULL = 'IS NULL';
+    public const IS_NOT_NULL = 'IS NOT NULL';
+    public const CONTAIN = '@@';
+    public const NOT_CONTAIN = '!@@';
+    public const GROUP_BY = 'GROUP BY';
 
     /**
      * @var string
@@ -194,5 +191,4 @@ class Filter
         $this->value = $value;
         return $this;
     }
-
 }

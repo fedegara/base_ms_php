@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Application\Middlewares;
-
 
 use App\Context\ScopeContext;
 use Exception;
@@ -48,6 +46,4 @@ class BasicScopeContext implements MiddlewareInterface
         }
         return $handler->handle($request);
     }
-
-
 }

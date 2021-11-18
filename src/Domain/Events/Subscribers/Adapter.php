@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Domain\Events\Subscribers;
-
 
 use Cratia\ORM\DBAL\Adapter\Events\Events;
 use Cratia\Rest\Dependencies\DebugBag;

@@ -1,15 +1,12 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages;
-
 
 use App\Infraestructure\Persistence\Mongo\Queryable\GeneralAction;
 use Exception;
 
 class GroupPipeline extends BasePipeline
 {
-
     /**
      * This is the principal action of a group is used to indicate the agroupation type.
      * This could be null
@@ -81,6 +78,4 @@ class GroupPipeline extends BasePipeline
     {
         return $this->id;
     }
-
-
 }

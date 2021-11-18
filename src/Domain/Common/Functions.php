@@ -13,8 +13,8 @@ use Grubie\Libs\DateRange;
 final class Functions
 {
     //TODO: Remove this constants when i18n is implemented
-    const DECIMAL_POINT = ",";
-    const THOUSANDS_POINT = ".";
+    public const DECIMAL_POINT = ",";
+    public const THOUSANDS_POINT = ".";
 
 
     /**
@@ -29,8 +29,7 @@ final class Functions
         bool $type = false,
         int $decimals = 0,
         bool $exclude_unnecessary_decimals = false
-    )
-    {
+    ) {
         if (strpos($number, ',') === false) {
             if (is_numeric($number)) {
                 if ($decimals === 0) {
@@ -38,11 +37,9 @@ final class Functions
                         if ($number > 0 and $number < 1) {
                             if ($number < 0.01) {
                                 $decimals = 4;
-                            }
-                            elseif ($number < 0.1) {
+                            } elseif ($number < 0.1) {
                                 $decimals = 3;
-                            }
-                            elseif ($number < 1) {
+                            } elseif ($number < 1) {
                                 $decimals = 2;
                             }
                         }
@@ -61,8 +58,7 @@ final class Functions
                 if (str_replace(array('0', ',', '.'), array(''), $n) === '') {
                     $n = 0;
                 }
-            }
-            else {
+            } else {
                 $n = 0;
             }
             /*
@@ -77,8 +73,7 @@ final class Functions
             }
 
             return $n;
-        }
-        else {
+        } else {
             return $number;
         }
     }
@@ -140,8 +135,7 @@ final class Functions
             $key = $date->format($key_format);
             if (array_key_exists($key, $data)) {
                 $res[] = $data[$key];
-            }
-            else {
+            } else {
                 // call user_map like function to fill missing entries
                 $fill_entry = $map_func_for_missing($date);
                 // date key are internally build
@@ -154,7 +148,7 @@ final class Functions
     }
 
 
-//Para las semanas
+    //Para las semanas
 
 
     /**
@@ -199,23 +193,20 @@ final class Functions
                 $row['max_date'] = $week['end']->format("Y-m-d 00:00:00");
                 $row['min_date'] = $week['start']->format("Y-m-d 00:00:00");
                 $return[$week_string] = $row;
-            }
-            else {
+            } else {
                 foreach ($week_data as $row) {
                     if (!isset($return[$week_string])) {
                         $row['max_date'] = $week['end']->format("Y-m-d 00:00:00");
                         $row['min_date'] = $week['start']->format("Y-m-d 00:00:00");
                         $return[$week_string] = $row;
-                    }
-                    else {
+                    } else {
                         foreach ($keys_data as $key) {
                             if (!isset($row[$key])) {
                                 continue;
                             }
                             if (isset($return[$week_string][$key])) {
                                 $return[$week_string][$key] += $row[$key];
-                            }
-                            else {
+                            } else {
                                 $return[$week_string][$key] = intval($row[$key]);
                             }
                         }

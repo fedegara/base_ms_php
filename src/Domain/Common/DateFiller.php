@@ -23,8 +23,7 @@ final class DateFiller
         //To control problems of campaign of one day
         if ($dateRange->getStart()->format("Y-m-d") == $dateRange->getEnd()->format("Y-m-d")) {
             $this->dateRange = new DateRange($dateRange->getStart()->format("Y-m-d H:i:s"), $dateRange->getStart()->format("Y-m-d 23:59:59"));
-        }
-        else {
+        } else {
             $this->dateRange = $dateRange;
         }
     }
@@ -61,8 +60,7 @@ final class DateFiller
         $end_date->modify('+6 days');
         if ($end_date > $this->dateRange->getEnd()) {
             $ret['end'] = $this->dateRange->getEnd();
-        }
-        else {
+        } else {
             $ret['end'] = $end_date->setTime(23, 59, 59);
         }
         return $ret;

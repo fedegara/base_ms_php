@@ -51,7 +51,8 @@ class OAuthMS
                     'adapter' => $cacheAdapter,
                     CacheManager::CMO_TTL => (isset($_ENV['OAUTH_TTL'])) ? intval($_ENV['OAUTH_TTL']) : 300,
                 ]
-            ]);
+            ]
+        );
     }
 
     /**

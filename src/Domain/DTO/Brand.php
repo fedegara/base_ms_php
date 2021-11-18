@@ -1,14 +1,11 @@
 <?php
 
-
 namespace App\Domain\DTO;
-
 
 use JsonSerializable;
 
 class Brand implements JsonSerializable
 {
-
     /**
      * @var int
      */
@@ -69,6 +66,4 @@ class Brand implements JsonSerializable
             'url_name' => $this->url_name
         ];
     }
-
-
 }

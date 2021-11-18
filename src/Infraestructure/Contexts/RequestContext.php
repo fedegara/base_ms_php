@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Infraestructure\Contexts;
-
 
 class RequestContext
 {
@@ -94,10 +92,9 @@ class RequestContext
     public function setHeaders($headers): self
     {
         $this->headers=[];
-        foreach($headers as $key=>$value){
+        foreach ($headers as $key=>$value) {
             $this->headers[$key]=current($value);
         }
         return $this;
     }
-
 }

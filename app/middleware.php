@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 
@@ -9,7 +10,6 @@ use App\Middleware\CorsMiddleware;
 use Cratia\Rest\Middleware\Context;
 use Cratia\Rest\Middleware\RouteInfo;
 use Slim\App;
-
 
 return function (App $app) {
     $app->addMiddleware(new RouteInfo($app->getContainer()));

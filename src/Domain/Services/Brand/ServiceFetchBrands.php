@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Domain\Services\Brand;
-
 
 use App\Domain\DAO\BrandDAO;
 use App\Domain\DTO\Brand;
@@ -10,7 +8,6 @@ use App\Domain\Interfaces\DTO\IBrandAdapter;
 
 final class ServiceFetchBrands
 {
-
     /**
      * @var BrandDAO
      */
@@ -29,6 +26,4 @@ final class ServiceFetchBrands
     {
         return $this->brandDao->fetchAll();
     }
-
-
 }

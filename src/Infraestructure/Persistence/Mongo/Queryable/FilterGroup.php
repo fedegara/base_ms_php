@@ -1,16 +1,13 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable;
-
 
 use Exception;
 
-
 class FilterGroup
 {
-    const MODE_INCLUSIVE = true; //AND
-    const MODE_EXCLUSIVE = false; //OR
+    public const MODE_INCLUSIVE = true; //AND
+    public const MODE_EXCLUSIVE = false; //OR
 
     /**
      * @var array
@@ -57,8 +54,7 @@ class FilterGroup
             }
             if ($this->getMode()) {
                 $filters = ['$and' => $filters];
-            }
-            else {
+            } else {
                 $filters = ['$or' => $filters];
             }
             return $filters;

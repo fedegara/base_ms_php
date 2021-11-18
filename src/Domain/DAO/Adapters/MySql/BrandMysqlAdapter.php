@@ -1,10 +1,6 @@
 <?php
 
-
 namespace App\Domain\DAO\Adapters\Mysql;
-
-
-
 
 use App\Domain\DTO\Brand;
 use App\Domain\Interfaces\DTO\IBrandAdapter;
@@ -18,14 +14,14 @@ use Cratia\ORM\DQL\Table;
 
 class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandAdapter
 {
-    const TABLE = "brands";
+    public const TABLE = "brands";
 
     /**
      * BrandMysqlAdapter constructor.
      */
     public function __construct(MySqlConnection $connection)
     {
-        parent::__construct($connection,new Table(self::TABLE));
+        parent::__construct($connection, new Table(self::TABLE));
     }
 
     public function fetchAll(): QueryResponse

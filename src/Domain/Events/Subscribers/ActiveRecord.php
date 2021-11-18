@@ -1,9 +1,8 @@
 <?php
+
 declare(strict_types=1);
 
-
 namespace App\Domain\Events\Subscribers;
-
 
 use Cratia\ORM\Model\Events\Events;
 use Cratia\Rest\Dependencies\DebugBag;

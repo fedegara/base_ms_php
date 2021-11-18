@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Application\Middlewares;
-
 
 use App\Infraestructure\Contexts\RequestContext;
 use Psr\Http\Message\ResponseInterface;
@@ -20,6 +18,4 @@ class RequestMiddleware implements MiddlewareInterface
         RequestContext::getInstance()->setMethod($request->getMethod());
         return $handler->handle($request);
     }
-
-
 }

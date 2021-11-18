@@ -1,14 +1,11 @@
 <?php
 
-
 namespace App\Infraestructure\Contexts;
-
 
 use JsonSerializable;
 
 class UserContext implements JsonSerializable
 {
-
     private static $_instance = null;
 
     /** @var int */
@@ -29,7 +26,6 @@ class UserContext implements JsonSerializable
      */
     private function __construct()
     {
-
     }
 
 
@@ -159,7 +155,7 @@ class UserContext implements JsonSerializable
      * @param array $array
      * @return UserContext
      */
-    public function loadFromSerialized(array $array):self
+    public function loadFromSerialized(array $array): self
     {
         $this
             ->setBrandUserAccess($array['brand_user_access'])

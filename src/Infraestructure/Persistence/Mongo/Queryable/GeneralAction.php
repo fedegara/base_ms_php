@@ -1,12 +1,9 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable;
-
 
 class GeneralAction
 {
-
     /*
      * EXAMPLE:
      *  'total_views': {$sum: '$metrics.visitors.allPageViews.total_views'}
@@ -72,6 +69,4 @@ class GeneralAction
             $this->displayName => [$this->action => $this->mongoField]
         ];
     }
-
-
 }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable;
-
 
 class Sort
 {

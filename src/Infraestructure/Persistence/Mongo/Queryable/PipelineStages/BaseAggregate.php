@@ -1,13 +1,12 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages;
 
 use App\Infraestructure\Persistence\Mongo\Queryable\Order;
 
 abstract class BaseAggregate
 {
-    const NO_LIMIT = -1;
+    public const NO_LIMIT = -1;
 
     /** @var ?Order */
     private $order = null;

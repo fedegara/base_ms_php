@@ -8,7 +8,6 @@
 
 namespace App\Domain\DTO\Utils;
 
-
 use APP\Adapters\Cfg;
 use App\Context\ScopeContext;
 use App\Infraestructure\Contexts\RequestContext;
@@ -21,7 +20,6 @@ use TypeError;
 
 class Utils
 {
-
     /**
      * @param Logger $logger
      * @param Exception|TypeError|Throwable $exception

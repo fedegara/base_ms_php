@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo;
-
 
 use App\Infraestructure\Persistence\Mongo\Queryable\QueryResponse;
 use App\Infraestructure\Persistence\MySql\MySqlConnection;
@@ -51,5 +49,4 @@ class MySqlAdapterBase
         $result =  (new QueryExecute($this->mysqlConnection))->executeQuery($query);
         return (new QueryResponse())->setData($result->getRows())->setFound($result->getCount());
     }
-
 }

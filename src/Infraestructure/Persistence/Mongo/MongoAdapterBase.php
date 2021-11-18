@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Infraestructure\DBAL\DAO;
-
 
 use App\Infraestructure\Persistence\Mongo\MongoConnection;
 use App\Infraestructure\Persistence\Mongo\Queryable\Filter;
@@ -18,7 +16,7 @@ use Exception;
 
 abstract class MongoAdapterBase
 {
-    const TYPE_OPERATIONS = [
+    public const TYPE_OPERATIONS = [
         'integer' => '$sum',
         'percentage' => '$avg'
     ];
@@ -64,7 +62,6 @@ abstract class MongoAdapterBase
      */
     public function aggregate(Aggregate $aggregate): QueryResponse
     {
-
         $data = iterator_to_array($this->connection->aggregate($aggregate));
 
         $this->connection->parseResponse($data);
@@ -80,7 +77,6 @@ abstract class MongoAdapterBase
      */
     protected function fetch(Query $query): QueryResponse
     {
-
         $data = $this->connection->read($query)->toArray();
         $this->connection->parseResponse($data);
 

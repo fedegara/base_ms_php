@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages;
 
 final class Aggregate extends BaseAggregate

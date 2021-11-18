@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Context;
@@ -15,8 +16,8 @@ use Psr\Container\ContainerInterface;
 
 class ScopeContext
 {
-    CONST CAMPAIGN_O_TYPE = 'campaign';
-    CONST BRAND_O_TYPE = 'brand';
+    public const CAMPAIGN_O_TYPE = 'campaign';
+    public const BRAND_O_TYPE = 'brand';
 
 
     private static $priv_instance;

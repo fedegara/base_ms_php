@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo;
-
 
 use App\Context\ScopeContext;
 use App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages\Aggregate;
@@ -66,7 +64,6 @@ class MongoConnection
 
     public static function parseResponse(&$response)
     {
-
         array_walk($response, function (&$value) {
             if ($value instanceof BSONDocument || $value instanceof BSONArray) {
                 $value = $value->getArrayCopy();
@@ -168,6 +165,5 @@ class MongoConnection
     public function listCollections(): DatabaseInfoIterator
     {
         return $this->client->listDatabases();
-
     }
 }

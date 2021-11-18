@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\MySql;
-
 
 use Cratia\ORM\DBAL\Adapter\Interfaces\IAdapter;
 use Cratia\ORM\DBAL\Adapter\MysqlAdapter;

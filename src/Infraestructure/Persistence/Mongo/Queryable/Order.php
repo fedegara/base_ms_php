@@ -1,15 +1,13 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable;
-
 
 use Exception;
 
 class Order
 {
-    const ORDER_ASC = 1;
-    const ORDER_DESC = -1;
+    public const ORDER_ASC = 1;
+    public const ORDER_DESC = -1;
 
     /** @var string */
     private $field;
@@ -25,7 +23,6 @@ class Order
      */
     public function __construct(string $field, int $direction = self::ORDER_ASC)
     {
-
         $this->field = $field;
         if (!in_array($direction, [self::ORDER_ASC, self::ORDER_DESC])) {
             throw new Exception("Direction is not valid");

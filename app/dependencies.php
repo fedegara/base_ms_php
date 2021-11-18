@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\Domain\DAO\Adapters\Mongo\BrandMongoAdapter;
@@ -26,7 +27,6 @@ use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
 return function (ContainerBuilder $containerBuilder) {
-
     $definitions = [
         LoggerInterface::class => function (ContainerInterface $c) {
             $settings = $c->get('settings');
@@ -63,7 +63,7 @@ return function (ContainerBuilder $containerBuilder) {
             $eventManager = $c->get(EventManager::class);
             $logger = $c->get(LoggerInterface::class);
             $settings = $c->get('settings');
-            return new MySqlConnection($settings['MYSQL_DSN'],$logger, $eventManager);
+            return new MySqlConnection($settings['MYSQL_DSN'], $logger, $eventManager);
         },
 
         LogdnaInterface::class => function (ContainerInterface $c) {
@@ -106,8 +106,7 @@ return function (ContainerBuilder $containerBuilder) {
 
             return $eventManager;
         };
-
-    }else {
+    } else {
         $definitions[EventManager::class] = function (ContainerInterface $c) {
             $eventManager = new EventManager();
             return $eventManager;

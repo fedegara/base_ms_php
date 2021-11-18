@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages;
 
 use App\Infraestructure\Persistence\Mongo\Queryable\Filter;
@@ -40,6 +39,4 @@ class MatchPipeline extends BasePipeline
         });
         return [$this->getStage() => $matches];
     }
-
-
 }

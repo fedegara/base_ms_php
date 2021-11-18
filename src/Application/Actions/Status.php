@@ -18,14 +18,12 @@ use Exception;
 
 class Status extends Action
 {
-
     /**
      * @return array<string,mixed>
      * @throws Exception
      */
     protected function action()
     {
-
         $mongoStatus = $this->testMongoDB();
         $mySqlStatus = $this->testMySql();
         return [
@@ -40,7 +38,6 @@ class Status extends Action
      */
     public function testMongoDB()
     {
-
         try {
             /** @var MongoConnection $mongo_connection */
             $mongo_connection = $this->getContainer()->get(MongoConnection::class);
@@ -48,9 +45,7 @@ class Status extends Action
             return true;
         } catch (Exception $ex) {
             throw new Exception("MongoDB: ERROR -> [EXCEPTION] {$ex->getMessage()}");
-
         }
-
     }
 
     /**
@@ -59,7 +54,6 @@ class Status extends Action
      */
     public function testMySql()
     {
-
         try {
             /** @var MySqlConnection $mysql_connection */
             $mysql_connection = $this->getContainer()->get(MySqlConnection::class);
@@ -67,10 +61,6 @@ class Status extends Action
             return true;
         } catch (Exception $ex) {
             throw new Exception("MongoDB: ERROR -> [EXCEPTION] {$ex->getMessage()}");
-
         }
-
     }
-
-
 }

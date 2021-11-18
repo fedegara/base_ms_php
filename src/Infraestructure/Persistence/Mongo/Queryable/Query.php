@@ -1,13 +1,12 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable;
 
 use Exception;
 
 final class Query
 {
-    const NO_LIMIT = -1;
+    public const NO_LIMIT = -1;
 
     /** @var string */
     private $collection;
@@ -145,5 +144,4 @@ final class Query
         }
         return $options;
     }
-
 }

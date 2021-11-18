@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\Application\Actions\Brand\Get;
@@ -12,7 +13,6 @@ use Slim\Routing\RouteCollectorProxy;
 
 //TODO: Always reflect all the new routes in the README
 return function (App $app) {
-
     $app->get('/ping', Ping::class);
     $app->get('/status', Status::class);
     $app->get('/error', Error::class);
@@ -69,4 +69,3 @@ return function (App $app) {
         }
     });
 };
-

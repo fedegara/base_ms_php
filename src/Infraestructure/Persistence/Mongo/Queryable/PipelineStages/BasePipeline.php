@@ -1,18 +1,16 @@
 <?php
 
-
 namespace App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages;
-
 
 use Exception;
 use ReflectionClass;
 
 abstract class BasePipeline
 {
-    const STAGE_MATCH = '$match';
-    const STAGE_GROUP = '$group';
-    const STAGE_PROJECT = '$project';
-    const STAGE_SORT = '$sort';
+    public const STAGE_MATCH = '$match';
+    public const STAGE_GROUP = '$group';
+    public const STAGE_PROJECT = '$project';
+    public const STAGE_SORT = '$sort';
 
     /** @var array */
     protected $actions;
@@ -49,5 +47,5 @@ abstract class BasePipeline
         return $this->stage;
     }
 
-    public abstract function parsePipeline(): array;
+    abstract public function parsePipeline(): array;
 }

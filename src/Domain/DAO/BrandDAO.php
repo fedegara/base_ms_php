@@ -1,9 +1,6 @@
 <?php
 
-
 namespace App\Domain\DAO;
-
-
 
 use App\Domain\DTO\Brand;
 use App\Domain\Interfaces\DAO\IBrandDAO;
@@ -12,8 +9,6 @@ use App\Domain\Interfaces\Mapper\IBrandMapper;
 
 class BrandDAO implements IBrandDAO
 {
-
-
     /**
      * @var IBrandAdapter
      */
@@ -40,10 +35,8 @@ class BrandDAO implements IBrandDAO
     /** @inheritDoc */
     public function fetchAll(): array
     {
-        return array_map(function($row){
+        return array_map(function ($row) {
             return $this->mapper->parseBrand($row);
-        },$this->adapter->fetchAll()->getData());
+        }, $this->adapter->fetchAll()->getData());
     }
-
-
 }

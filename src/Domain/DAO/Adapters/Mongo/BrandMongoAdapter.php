@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Domain\DAO\Adapters\Mongo;
 
 use App\Domain\DTO\Brand;
@@ -14,7 +13,7 @@ use App\Infraestructure\Persistence\Mongo\Queryable\QueryResponse;
 
 final class BrandMongoAdapter extends MongoAdapterBase implements IBrandAdapter
 {
-    const COLLECTION = "brands";
+    public const COLLECTION = "brands";
 
     /**
      * @param MongoConnection $connection
@@ -35,8 +34,4 @@ final class BrandMongoAdapter extends MongoAdapterBase implements IBrandAdapter
 
         return $data;
     }
-
-
-
-
 }
