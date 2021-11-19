@@ -4,12 +4,16 @@ namespace App\Infraestructure\Contexts;
 
 class RequestContext
 {
+    /** @var string */
     private $url;
+    /** @var string */
     private $method;
+    /** @var string */
     private $body;
+    /** @var array<string,string> */
     private $headers;
-
-    private static $instance;
+    /** @var ?RequestContext */
+    private static $instance = null;
 
     private function __construct()
     {
@@ -91,9 +95,9 @@ class RequestContext
      */
     public function setHeaders($headers): self
     {
-        $this->headers=[];
-        foreach ($headers as $key=>$value) {
-            $this->headers[$key]=current($value);
+        $this->headers = [];
+        foreach ($headers as $key => $value) {
+            $this->headers[$key] = current($value);
         }
         return $this;
     }

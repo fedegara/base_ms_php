@@ -24,7 +24,11 @@ class Adapter implements EventSubscriber
         $this->debugBag = $debugBag;
     }
 
-    public function __call($name, $arguments)
+    /**
+     * @param string $name
+     * @param mixed $arguments
+     */
+    public function __call(string $name, $arguments): void
     {
         $attach = new stdClass();
         $attach->event = $name;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Domain\Common;
 
 use DateInterval;
@@ -29,7 +31,7 @@ final class DateFiller
     }
 
     /**
-     * @return array
+     * @return array<int,array<string,DateTime>>
      * @throws Exception
      */
     public function buildWeeks(): array
@@ -46,9 +48,9 @@ final class DateFiller
     /**
      * @param DateTimeInterface $date
      * @param DateTime|null $max_date
-     * @return array
+     * @return array<string,DateTime>
+     * @throws Exception
      */
-
     private function buildWeekByDateTime(DateTimeInterface $date, ?DateTime $max_date = null): array
     {
         $ret = [];

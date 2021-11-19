@@ -22,9 +22,10 @@ class Utils
 {
     /**
      * @param Logger $logger
-     * @param Exception|TypeError|Throwable $exception
+     * @param Exception $exception
+     * @throws Exception
      */
-    public static function logException(Logger $logger, $exception)
+    public static function logException(Logger $logger, Exception $exception): void
     {
         $logger->error(json_encode([
             "dateTime" => (new DateTime())->format('Y-m-d H:i:s'),

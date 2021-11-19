@@ -94,12 +94,12 @@ final class Functions
 
     /**
      * FillMissingDate predecessor (callback mapper like)
-     * @param array $data Array with all the data obtained from MONGO
+     * @param array<int,mixed> $data Array with all the data obtained from MONGO
      * @param DateRange $range Range of date to process obtained from URL
      * @param DateInterval $interval The interval to filled this a new DateInterval | new DateInterval("P1D") | new DateInterval("P1W") | new DateInterval("P1M")
      * @param mixed $map_func_for_missing Anonymus Function to fill the step when is missing
      * @param string $date_key Field where the function can find the date inside of $data
-     * @return array Return the $data but all the missing dates filled by  $map_func_for_missing
+     * @return array<int,mixed> Return the $data but all the missing dates filled by  $map_func_for_missing //TODO mejorar explciacion del return cuando tengamos algun ejemplo
      * @throws Exception
      */
     public static function fillMissingDates(array $data, DateRange $range, DateInterval $interval, $map_func_for_missing, string $date_key = 'date'): array
@@ -171,9 +171,10 @@ final class Functions
      */
 
     /**
-     * @param array $data Array with all the data obtained from MONGO
-     * @param array $keys_data Array with all the keys to filled with 0 in the period
-     * @return array
+     * @param array<int,mixed> $data Array with all the data obtained from MONGO
+     * @param array<mixed> $keys_data Array with all the keys to filled with 0 in the period
+     * @param DateRange $range
+     * @return array<int,array<string,mixed>>
      * @throws Exception
      */
     public static function unifiedByWeek(array $data, array $keys_data, DateRange $range): array

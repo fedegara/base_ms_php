@@ -20,6 +20,9 @@ class ScopeContext
     public const BRAND_O_TYPE = 'brand';
 
 
+    /**
+     * @var ScopeContext
+     */
     private static $priv_instance;
 
     /** @var string */

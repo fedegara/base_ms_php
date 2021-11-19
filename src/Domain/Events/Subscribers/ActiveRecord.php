@@ -37,7 +37,11 @@ class ActiveRecord implements EventSubscriber
         $this->errorBag = $errorBag;
     }
 
-    public function __call($name, $arguments)
+    /**
+     * @param string $name
+     * @param mixed $arguments
+     */
+    public function __call(string $name, $arguments): void
     {
         $attach = new stdClass();
         $attach->event = $name;
@@ -60,7 +64,6 @@ class ActiveRecord implements EventSubscriber
     {
         return $this->errorBag;
     }
-
 
 
     /**
