@@ -86,7 +86,7 @@ abstract class MongoAdapterBase
     }
 
     /**
-     * @param array|null $ids
+     * @param array<int>|null $ids
      * @param Query $query
      * @return Query
      * @throws Exception
@@ -105,8 +105,13 @@ abstract class MongoAdapterBase
         return $query;
     }
 
+
     //TODO: Improve => Move this method to GroupPipelineMapper() or (GroupPipeline())->addActions(array $pipelines)
-    protected function addPipelineGroup(array $pipelines): GroupPipeline
+    /*
+     * @param array<BasePipeline> $pipelines
+     * @return GroupPipeline
+     */
+    /*protected function addPipelineGroup(array $pipelines): GroupPipeline
     {
         //TODO: Improve => Standarize this approach later
         $edge = '$metrics.';
@@ -118,10 +123,10 @@ abstract class MongoAdapterBase
         }
 
         return $groupPipelines;
-    }
+    }*/
 
     /**
-     * @param array|null $ids
+     * @param array<string|int>|null $ids
      * @param MatchPipeline $pipeline
      * @return MatchPipeline
      * @throws Exception

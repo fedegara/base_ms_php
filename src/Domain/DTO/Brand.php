@@ -27,7 +27,7 @@ class Brand implements JsonSerializable
      * @param string $name
      * @param string $url_name
      */
-    public function __construct(int $id, string $name, string $url_name)
+    public function __construct(int $id, string $name, string $url_name='')
     {
         $this->id = $id;
         $this->name = $name;

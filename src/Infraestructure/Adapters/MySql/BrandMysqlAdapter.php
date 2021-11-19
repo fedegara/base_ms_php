@@ -11,7 +11,7 @@ use Cratia\ORM\DQL\Table;
 
 class BrandMysqlAdapter extends MySqlAdapterBase implements IBrandAdapter
 {
-    public const TABLE = "brands";
+    public const TABLE = "brand";
 
     /**
      * BrandMysqlAdapter constructor.
