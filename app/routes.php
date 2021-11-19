@@ -39,7 +39,7 @@ return function (App $app) {
 
     $app->group("/", function (RouteCollectorProxy $group) use ($auth_scoped_routes) {
         foreach ($auth_scoped_routes as $route) {
-            $group->map($route['method'], $route['route'], $route['callable'])->setArgument("auth", "true");
+            $group->map($route['method'], $route['route'], $route['callable']);//->setArgument("auth", "true");
         }
     });
 

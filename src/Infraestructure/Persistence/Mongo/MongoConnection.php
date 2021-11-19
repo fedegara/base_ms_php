@@ -18,13 +18,14 @@ use Traversable;
 class MongoConnection
 {
     //this must be an array because we could have a connection to read and another to write
+    /** @var array<MongoConnection>  */
     private static $_instance = [];
 
     /** @var Client */
     private $client;
     /** @var Collection */
     private $collection;
-
+    /** @var string  */
     private $database;
 
     /**
@@ -62,7 +63,10 @@ class MongoConnection
         return self::$_instance[$dsn];
     }
 
-    public static function parseResponse(&$response)
+    /**
+     * @param array<BSONDocument|BSONArray|\ArrayObject> $response
+     */
+    public static function parseResponse(array &$response) : void
     {
         array_walk($response, function (&$value) {
             if ($value instanceof BSONDocument || $value instanceof BSONArray) {

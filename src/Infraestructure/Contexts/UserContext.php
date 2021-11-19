@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Infraestructure\Contexts;
 
@@ -6,15 +7,16 @@ use JsonSerializable;
 
 class UserContext implements JsonSerializable
 {
-    private static $_instance = null;
+    /** @var UserContext */
+    static $_instance = null;
 
     /** @var int */
     private $user_id;
     /** @var string */
     private $user_email;
-    /** @var array */
+    /** @var array<string> */
     private $brand_user_access;
-    /** @var array */
+    /** @var array<string> */
     private $campaign_user_access;
     /** @var string|null */
     private $authorizationToken;
@@ -34,7 +36,7 @@ class UserContext implements JsonSerializable
      */
     public static function getInstance(): UserContext
     {
-        if (is_null(self::$_instance)) {
+        if (!self::$_instance instanceof UserContext) {
             self::$_instance = new self();
         }
         return self::$_instance;
@@ -77,7 +79,7 @@ class UserContext implements JsonSerializable
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getBrandUserAccess(): array
     {
@@ -85,7 +87,7 @@ class UserContext implements JsonSerializable
     }
 
     /**
-     * @param array $brand_user_access
+     * @param array<string> $brand_user_access
      * @return UserContext
      */
     public function setBrandUserAccess(array $brand_user_access): self
@@ -95,7 +97,7 @@ class UserContext implements JsonSerializable
     }
 
     /**
-     * @return array
+     * @return array<string>
      */
     public function getCampaignUserAccess(): array
     {
@@ -103,7 +105,7 @@ class UserContext implements JsonSerializable
     }
 
     /**
-     * @param array $campaign_user_access
+     * @param array<string> $campaign_user_access
      * @return UserContext
      */
     public function setCampaignUserAccess(array $campaign_user_access): self
@@ -152,7 +154,7 @@ class UserContext implements JsonSerializable
 
     /**
      * Load instance from Serialized array
-     * @param array $array
+     * @param array<array<string>|string|int> $array
      * @return UserContext
      */
     public function loadFromSerialized(array $array): self
