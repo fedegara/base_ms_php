@@ -154,7 +154,7 @@ class UserContext implements JsonSerializable
 
     /**
      * Load instance from Serialized array
-     * @param array<array<string>|string|int> $array
+     * @param array<mixed> $array
      * @return UserContext
      */
     public function loadFromSerialized(array $array): self

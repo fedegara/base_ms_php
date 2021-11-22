@@ -152,7 +152,7 @@ class MongoConnection
     }
 
     /**
-     * @param Query|Aggregate $queryAggregate
+     * @param Aggregate $queryAggregate
      * @return Traversable<mixed>
      */
     public function aggregate($queryAggregate): Traversable

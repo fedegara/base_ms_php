@@ -98,7 +98,7 @@ class Filter
     }
 
     /**
-     * @return array<string|array<string|mixed>>
+     * @return array<string|mixed>
      * @throws Exception
      */
     public function jsonSerialize(): array
@@ -159,11 +159,12 @@ class Filter
                 $return = [$this->getField() => ['$nin' => $this->getValue()]];
                 break;
             case self::BETWEEN:
+                $tmpValue = $this->getValue();
                 $return = [
                     $this->getField() =>
                         [
-                            '$gte' => $this->getValue()['min'],
-                            '$lte' => $this->getValue()['max']
+                            '$gte' => $tmpValue['min'],
+                            '$lte' => $tmpValue['max']
                         ]
                 ];
                 break;

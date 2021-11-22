@@ -47,7 +47,7 @@ final class Functions
                 }
 
                 $n = number_format(
-                    $number,
+                    floatval($number),
                     $decimals,
                     self::DECIMAL_POINT,
                     self::THOUSANDS_POINT
@@ -133,7 +133,7 @@ final class Functions
         /** @var DateTime $date */
         foreach ($period as $date) {
             $key = $date->format($key_format);
-            if (array_key_exists($key, $data)) {
+            if (is_array($data) && array_key_exists($key, $data)) {
                 $res[] = $data[$key];
             } else {
                 // call user_map like function to fill missing entries

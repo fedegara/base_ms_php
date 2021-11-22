@@ -27,7 +27,7 @@ class Utils
      */
     public static function logException(Logger $logger, Exception $exception): void
     {
-        $logger->error(json_encode([
+        $ret = json_encode([
             "dateTime" => (new DateTime())->format('Y-m-d H:i:s'),
             "method" => RequestContext::getInstance()->getMethod(),
             "url" => RequestContext::getInstance()->getUrl(),
@@ -41,6 +41,9 @@ class Utils
             "statusCode" => (($exception->getCode()) ? $exception->getCode() : 500),
             "message" => $exception->getMessage(),
             "trace" => $exception->getTrace()
-        ]));
+        ]);
+        if ($ret !== false) {
+            $logger->error($ret);
+        }
     }
 }
