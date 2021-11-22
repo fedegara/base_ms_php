@@ -11,7 +11,7 @@ final class Query
     /** @var string */
     private $collection;
 
-    /** @var Filter[] */
+    /** @var array<Filter|FilterGroup> */
     private $filters;
 
     /** @var ?Order */
@@ -119,7 +119,7 @@ final class Query
     }
 
     /**
-     * @return Filter[]
+     * @return array<Filter|FilterGroup>
      */
     public function getFilters(): array
     {
@@ -127,7 +127,7 @@ final class Query
     }
 
     /**
-     * @return array<int>
+     * @return array<string, array<int>|int>
      */
     public function getOptions(): array
     {

@@ -7,7 +7,7 @@ use App\Infraestructure\Interfaces\Mapper\IBrandMapper;
 class Brand implements IBrandMapper
 {
     /**
-     * @param array<string|int> $data
+     * @param array<string|string> $data
      * @return \App\Domain\DTO\Brand
      */
     public function parseBrand(array $data): \App\Domain\DTO\Brand

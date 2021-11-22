@@ -35,7 +35,11 @@ class FilterGroup
      */
     public function addFilter(Filter $filter): FilterGroup
     {
-        $this->filters[md5(json_encode($filter->getValue()))] = $filter;
+        $json_encode = json_encode($filter->getValue());
+        if(!$json_encode){
+            throw  new Exception("Error transform tor json: ".json_last_error_msg());
+        }
+        $this->filters[md5($json_encode)] = $filter;
         return $this;
     }
 

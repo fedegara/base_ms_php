@@ -17,7 +17,7 @@ final class QueryResponse
     private $found;
 
     /**
-     * @return array<string,array<string>>
+     * @return array<string,array<string,string>>
      */
     public function getData(): array
     {
