@@ -10,7 +10,7 @@ class GroupPipeline extends BasePipeline
     /**
      * This is the principal action of a group is used to indicate the agroupation type.
      * This could be null
-     * @var array|string|null
+     * @var array<int|mixed>|string|null
      */
     private $id;
 
@@ -44,12 +44,15 @@ class GroupPipeline extends BasePipeline
         return $this;
     }
 
-    public function addAction($action): self
+    public function addAction(GeneralAction $action): self
     {
         $this->actions[] = $action;
         return $this;
     }
 
+    /**
+     * @return array<GeneralAction|int|mixed>
+     */
     public function parsePipeline(): array
     {
         $id = [];
@@ -72,7 +75,7 @@ class GroupPipeline extends BasePipeline
     }
 
     /**
-     * @return array|string|null
+     * @return array<int|mixed>|string|null
      */
     public function getId()
     {

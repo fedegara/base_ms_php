@@ -28,7 +28,7 @@ class MatchPipeline extends BasePipeline
     }
 
     /**
-     * @return array[]
+     * @return array<int|mixed>
      * @throws Exception
      */
     public function parsePipeline(): array

@@ -17,6 +17,9 @@ class SortPipeline extends BasePipeline
         return $this;
     }
 
+    /**
+     * @return array<array<int>>
+     */
     public function parsePipeline(): array
     {
         $sorts = [];

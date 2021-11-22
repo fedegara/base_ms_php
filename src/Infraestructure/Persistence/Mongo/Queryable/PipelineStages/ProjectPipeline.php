@@ -17,6 +17,9 @@ class ProjectPipeline extends BasePipeline
         return $this;
     }
 
+    /**
+     * @return array<array<int|mixed>>
+     */
     public function parsePipeline(): array
     {
         $projections = [];

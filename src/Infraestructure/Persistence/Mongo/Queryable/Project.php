@@ -16,13 +16,13 @@ class Project
 
     /** @var string */
     private $mongoField;
-    /** @var string|int|array */
+    /** @var string|int|array<string|int> */
     private $displayValue;
 
     /**
      * Project constructor.
      * @param string $mongoField
-     * @param string|int|array $displayValue
+     * @param string|int|array<string|int> $displayValue
      */
     public function __construct(string $mongoField, $displayValue)
     {
@@ -31,7 +31,7 @@ class Project
     }
 
     /**
-     * @return string|int|array
+     * @return string|int|array<string|int>
      */
     public function getDisplayValue()
     {
@@ -47,7 +47,7 @@ class Project
     }
 
     /**
-     * @return array
+     * @return array<string|int|array<string|int>>
      */
     public function buildProject(): array
     {
