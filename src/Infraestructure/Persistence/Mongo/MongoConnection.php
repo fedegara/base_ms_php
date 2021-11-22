@@ -9,6 +9,7 @@ use Exception;
 use MongoDB\BSON\UTCDateTime;
 use MongoDB\Client;
 use MongoDB\Collection;
+use MongoDB\Driver\Cursor;
 use MongoDB\Model\BSONArray;
 use MongoDB\Model\BSONDocument;
 use MongoDB\Model\DatabaseInfoIterator;
@@ -112,14 +113,15 @@ class MongoConnection
         $this->collection = $this->client->selectCollection($this->database, $collection);
     }
 
+    /**
+     * @param Query $mongoQueryable
+     * @return Cursor|null
+     * @throws Exception
+     */
     public function read(Query $mongoQueryable)
     {
-        try {
-            $this->changeCollection($mongoQueryable->getCollection());
-            return $this->collection->find($mongoQueryable->getFiltersParsed(), $mongoQueryable->getOptions());
-        } catch (Exception $exception) {
-            die(dump($exception));//ignore-dump
-        }
+        $this->changeCollection($mongoQueryable->getCollection());
+        return $this->collection->find($mongoQueryable->getFiltersParsed(), $mongoQueryable->getOptions());
     }
 
     /**
@@ -140,7 +142,7 @@ class MongoConnection
      *
      * @param string $fieldName
      * @param Query $mongoQueryable
-     * @return array
+     * @return mixed[]
      * @throws Exception
      */
     public function distinct(string $fieldName, Query $mongoQueryable): array
@@ -151,16 +153,12 @@ class MongoConnection
 
     /**
      * @param Query|Aggregate $queryAggregate
-     * @return Traversable
+     * @return Traversable<mixed>
      */
     public function aggregate($queryAggregate): Traversable
     {
-        try {
-            $this->changeCollection($queryAggregate->getCollection());
-            return $this->collection->aggregate($queryAggregate->getPipelineParsed());
-        } catch (Exception $exception) {
-            die(dump($exception));//ignore-dump
-        }
+        $this->changeCollection($queryAggregate->getCollection());
+        return $this->collection->aggregate($queryAggregate->getPipelineParsed());
     }
 
     /**

@@ -8,7 +8,7 @@ use App\Domain\DTO\Brand;
 interface IBrandMapper
 {
     /**
-     * @param array<string|int> $data
+     * @param array<string,array<string>>|array<string> $data
      * @return Brand
      */
     public function parseBrand(array $data): Brand;
