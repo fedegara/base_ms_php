@@ -37,7 +37,7 @@ class Sort
     }
 
     /**
-     * @return array
+     * @return array<string,int>
      */
     public function buildSort(): array
     {
