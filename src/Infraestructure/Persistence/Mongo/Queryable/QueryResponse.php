@@ -3,10 +3,13 @@
 namespace App\Infraestructure\Persistence\Mongo\Queryable;
 
 //TODO: Create & Implement IQueryResponse
+use ArrayObject;
+use MongoDB\Model\{BSONArray, BSONDocument};
+
 final class QueryResponse
 {
     /**
-     * @var array
+     * @var array<BSONArray|BSONDocument|ArrayObject>
      */
     private $data;
 
@@ -16,7 +19,7 @@ final class QueryResponse
     private $found;
 
     /**
-     * @return array
+     * @return array<BSONArray|BSONDocument|ArrayObject>
      */
     public function getData(): array
     {
@@ -24,7 +27,7 @@ final class QueryResponse
     }
 
     /**
-     * @param array $data
+     * @param array<BSONArray|BSONDocument|ArrayObject> $data
      * @return $this
      */
     public function setData(array $data): QueryResponse

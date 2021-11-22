@@ -105,7 +105,7 @@ final class Query
     }
 
     /**
-     * @return array
+     * @return Filter[]
      * @throws Exception
      */
     public function getFiltersParsed(): array
@@ -126,6 +126,9 @@ final class Query
         return $this->filters;
     }
 
+    /**
+     * @return array<int>
+     */
     public function getOptions(): array
     {
         $options = [];
