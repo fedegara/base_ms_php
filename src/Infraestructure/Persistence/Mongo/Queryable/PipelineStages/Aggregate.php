@@ -2,6 +2,8 @@
 
 namespace App\Infraestructure\Persistence\Mongo\Queryable\PipelineStages;
 
+use App\Infraestructure\Persistence\Mongo\Queryable\GeneralAction;
+
 final class Aggregate extends BaseAggregate
 {
     /** @var String */
@@ -56,7 +58,7 @@ final class Aggregate extends BaseAggregate
     }
 
     /**
-     * @return array
+     * @return array<GeneralAction|int|mixed>
      */
     public function getPipelineParsed(): array
     {

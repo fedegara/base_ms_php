@@ -47,6 +47,9 @@ class Order
     }
 
 
+    /**
+     * @return array<int>
+     */
     public function getOrderBy(): array
     {
         return [$this->field => intval($this->direction)];

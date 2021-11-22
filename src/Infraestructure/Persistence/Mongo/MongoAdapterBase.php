@@ -105,26 +105,6 @@ abstract class MongoAdapterBase
         return $query;
     }
 
-
-    //TODO: Improve => Move this method to GroupPipelineMapper() or (GroupPipeline())->addActions(array $pipelines)
-    /*
-     * @param array<BasePipeline> $pipelines
-     * @return GroupPipeline
-     */
-    /*protected function addPipelineGroup(array $pipelines): GroupPipeline
-    {
-        //TODO: Improve => Standarize this approach later
-        $edge = '$metrics.';
-        $groupPipelines = (new GroupPipeline());
-
-        foreach ($pipelines as $pipeline) {
-            $field = $edge . str_replace('total_', '', $pipeline->getMetric());
-            $groupPipelines->addAction(new GeneralAction($pipeline->getMetric(), self::TYPE_OPERATIONS[$pipeline->getType()], $field));
-        }
-
-        return $groupPipelines;
-    }*/
-
     /**
      * @param array<string|int>|null $ids
      * @param MatchPipeline $pipeline

@@ -10,7 +10,7 @@ class FilterGroup
     public const MODE_EXCLUSIVE = false; //OR
 
     /**
-     * @var array
+     * @var array<Filter>
      */
     private $filters;
 
@@ -23,7 +23,7 @@ class FilterGroup
      * FilterGroup constructor.
      * @param bool $mode
      */
-    public function __construct($mode = self::MODE_INCLUSIVE)
+    public function __construct(bool $mode = self::MODE_INCLUSIVE)
     {
         $this->setMode($mode);
         $this->filters = [];
@@ -40,7 +40,7 @@ class FilterGroup
     }
 
     /**
-     * @return array|null
+     * @return array<string,mixed>|null
      * @throws Exception
      */
     public function getFilter(): ?array

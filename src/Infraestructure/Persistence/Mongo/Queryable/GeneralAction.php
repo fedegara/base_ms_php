@@ -61,7 +61,7 @@ class GeneralAction
 
 
     /**
-     * @return array
+     * @return array<int|string>
      */
     public function buildAction(): array
     {

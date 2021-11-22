@@ -53,6 +53,11 @@ class Filter
             ->setValue($value);
     }
 
+    /**
+     * @param array<int|mixed>|null $value
+     * @return $this
+     * @throws Exception
+     */
     protected function checkValue($value): Filter
     {
         if (is_null($value)) {
@@ -93,7 +98,7 @@ class Filter
     }
 
     /**
-     * @return array
+     * @return array<string|array<string|mixed>>
      * @throws Exception
      */
     public function jsonSerialize(): array
@@ -124,6 +129,9 @@ class Filter
         return $this;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getFilter(): ?array
     {
         $return = null;
@@ -175,7 +183,7 @@ class Filter
     }
 
     /**
-     * @return array|string
+     * @return array<string>|string
      */
     public function getValue()
     {
@@ -183,7 +191,7 @@ class Filter
     }
 
     /**
-     * @param array<string> $value
+     * @param array<string>|string $value
      * @return Filter
      */
     public function setValue($value): self

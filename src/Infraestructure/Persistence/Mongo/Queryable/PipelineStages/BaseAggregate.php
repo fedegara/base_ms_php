@@ -75,7 +75,7 @@ abstract class BaseAggregate
     //TODO: Check if it's necessary
 
     /**
-     * @return array
+     * @return array<int|array<int>>
      */
     public function getOptions(): array
     {
