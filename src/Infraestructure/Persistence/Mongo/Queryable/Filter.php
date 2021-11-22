@@ -33,7 +33,7 @@ class Filter
     private $operator;
 
     /**
-     * @var string|array
+     * @var array<string>
      */
     private $value;
 
@@ -183,7 +183,7 @@ class Filter
     }
 
     /**
-     * @param array|string $value
+     * @param array<string> $value
      * @return Filter
      */
     public function setValue($value): self
