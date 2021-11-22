@@ -33,7 +33,7 @@ class Filter
     private $operator;
 
     /**
-     * @var array<string>
+     * @var array<string,string>|string
      */
     private $value;
 
@@ -159,16 +159,21 @@ class Filter
                 $return = [$this->getField() => ['$nin' => $this->getValue()]];
                 break;
             case self::BETWEEN:
-                $tmpValue = $this->getValue();
+                if (!is_array($this->getValue()) || !isset($this->getValue()['min']) || !isset($this->getValue()['max'])) {
+                    throw  new Exception("Between value must have a min and max value");
+                }
                 $return = [
                     $this->getField() =>
                         [
-                            '$gte' => $tmpValue['min'],
-                            '$lte' => $tmpValue['max']
+                            '$gte' => $this->getValue()['min'],
+                            '$lte' => $this->getValue()['max']
                         ]
                 ];
                 break;
             case self::CONTAIN:
+                if(!is_string($this->getValue())){
+                    throw  new Exception("Contain filter must be a simple string");
+                }
                 $return = [$this->getField() => ['$regex' => ".*{$this->getValue()}.*", '$options' => 'i']];
                 break;
             case self::GROUP_BY:
@@ -184,7 +189,7 @@ class Filter
     }
 
     /**
-     * @return array<string>|string
+     * @return array<string,string>|string
      */
     public function getValue()
     {
@@ -192,7 +197,7 @@ class Filter
     }
 
     /**
-     * @param array<string>|string $value
+     * @param array<string,string>|string $value
      * @return Filter
      */
     public function setValue($value): self
