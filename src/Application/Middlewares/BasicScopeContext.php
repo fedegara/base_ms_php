@@ -21,6 +21,9 @@ class BasicScopeContext implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $route = (RouteContext::fromRequest($request))->getRoute();
+        if(is_null($route)){
+            throw new Exception("Null Route");
+        }
         if (!empty($route->getArguments())) {
             if (!is_null($route->getArgument('instance'))) {
                 ScopeContext::getInstance()->setInstanceName($route->getArgument('instance'));
@@ -41,7 +44,7 @@ class BasicScopeContext implements MiddlewareInterface
                 ScopeContext::getInstance()->setPeriodEnd($route->getArgument('period_end'));
             }
             if (!is_null($route->getArgument('entity'))) {
-                ScopeContext::getInstance()->setPeriodEnd($route->getArgument('period_end'));
+                ScopeContext::getInstance()->setEntityId(intval($route->getArgument('entity')));
             }
         }
         return $handler->handle($request);

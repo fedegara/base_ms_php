@@ -8,7 +8,7 @@ final class Query
 {
     public const NO_LIMIT = -1;
 
-    /** @var string */
+    /** @var ?string */
     private $collection;
 
     /** @var array<Filter|FilterGroup> */
@@ -53,9 +53,9 @@ final class Query
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getLimit(): int
+    public function getLimit(): ?int
     {
         return $this->limit;
     }
@@ -71,9 +71,9 @@ final class Query
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getOffset(): int
+    public function getOffset(): ?int
     {
         return $this->offset;
     }
@@ -113,7 +113,10 @@ final class Query
         $filters = $this->getFilters();
         $filtersResponse = [];
         array_walk($filters, function ($filter) use (&$filtersResponse) {
-            $filtersResponse = array_merge($filtersResponse, $filter->getFilter());
+            $filter = $filter->getFilter();
+            if(!is_null($filter)){
+                $filtersResponse = array_merge($filtersResponse, $filter);
+            }
         });
         return $filtersResponse;
     }

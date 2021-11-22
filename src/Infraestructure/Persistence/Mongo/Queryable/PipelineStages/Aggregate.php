@@ -6,13 +6,13 @@ use App\Infraestructure\Persistence\Mongo\Queryable\GeneralAction;
 
 final class Aggregate extends BaseAggregate
 {
-    /** @var String */
+    /** @var ?string */
     private $collection;
     /** @var BasePipeline[] */
     private $pipelines;
 
     /**
-     * @param String|null $collection
+     * @param string|null $collection
      */
     public function __construct(String $collection = null)
     {
@@ -62,7 +62,7 @@ final class Aggregate extends BaseAggregate
      */
     public function getPipelineParsed(): array
     {
-        $return = null;
+        $return = [];
         foreach ($this->pipelines as $pipeline) {
             $return[] = $pipeline->parsePipeline();
         }

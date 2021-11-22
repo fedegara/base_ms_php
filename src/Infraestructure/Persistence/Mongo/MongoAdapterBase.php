@@ -77,7 +77,11 @@ abstract class MongoAdapterBase
      */
     protected function fetch(Query $query): QueryResponse
     {
-        $data = $this->connection->read($query)->toArray();
+        $cursor = $this->connection->read($query);
+        $data = [];
+        if (!is_null($cursor)) {
+            $data = $cursor->toArray();
+        }
         $this->connection->parseResponse($data);
 
         return (new QueryResponse())

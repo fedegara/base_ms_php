@@ -19,9 +19,9 @@ abstract class BaseAggregate
 
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getLimit(): int
+    public function getLimit(): ?int
     {
         return $this->limit;
     }
@@ -37,9 +37,9 @@ abstract class BaseAggregate
     }
 
     /**
-     * @return int
+     * @return ?int
      */
-    public function getOffset(): int
+    public function getOffset(): ?int
     {
         return $this->offset;
     }
@@ -55,9 +55,9 @@ abstract class BaseAggregate
     }
 
     /**
-     * @return Order
+     * @return ?Order
      */
-    public function getOrder(): Order
+    public function getOrder(): ?Order
     {
         return $this->order;
     }

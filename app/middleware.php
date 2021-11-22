@@ -11,10 +11,15 @@ use Cratia\Rest\Middleware\Context;
 use Cratia\Rest\Middleware\RouteInfo;
 use Slim\App;
 
+
 return function (App $app) {
-    $app->addMiddleware(new RouteInfo($app->getContainer()));
+    $container = $app->getContainer();
+    if(is_null($container)){
+        throw  new Exception("Error container not specified");
+    }
+    $app->addMiddleware(new RouteInfo($container));
     $app->addMiddleware(new CorsMiddleware());
-    $app->addMiddleware(new Context($app->getContainer()));
+    $app->addMiddleware(new Context($container));
     $app->addMiddleware(new AuthenticationJWT());
     $app->addMiddleware(new BasicScopeContext());
     $app->addMiddleware(new RequestMiddleware());
