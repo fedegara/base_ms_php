@@ -53,6 +53,11 @@ class Filter
             ->setValue($value);
     }
 
+    /**
+     * @param int|string|string[]|number[]|boolean|boolean[]|mixed|mixed[] $value
+     * @return $this
+     * @throws Exception
+     */
     protected function checkValue($value): Filter
     {
         if (is_null($value)) {
@@ -93,7 +98,7 @@ class Filter
     }
 
     /**
-     * @return array
+     * @return array<string|string|mixed>
      * @throws Exception
      */
     public function jsonSerialize(): array
