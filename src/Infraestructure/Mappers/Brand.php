@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infraestructure\Mappers\Mongo;
+namespace App\Infraestructure\Mappers;
 
 use App\Infraestructure\Interfaces\Mapper\IBrandMapper;
 
