@@ -109,7 +109,7 @@ class MongoConnection
      */
     private function changeCollection(string $collection = null): void
     {
-        if(!is_null($collection)){
+        if (!is_null($collection)) {
             $this->collection = $this->client->selectCollection($this->database, $collection);
         }
     }

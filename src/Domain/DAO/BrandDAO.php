@@ -2,7 +2,6 @@
 
 namespace App\Domain\DAO;
 
-
 use App\Domain\Interfaces\DAO\IBrandDAO;
 use App\Infraestructure\Interfaces\DTO\IBrandAdapter;
 use App\Infraestructure\Interfaces\Mapper\IBrandMapper;

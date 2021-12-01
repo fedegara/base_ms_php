@@ -21,7 +21,7 @@ class BasicScopeContext implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $route = (RouteContext::fromRequest($request))->getRoute();
-        if(is_null($route)){
+        if (is_null($route)) {
             throw new Exception("Null Route");
         }
         if (!empty($route->getArguments())) {

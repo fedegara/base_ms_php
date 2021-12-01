@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Infraestructure\Contexts;
@@ -8,7 +9,7 @@ use JsonSerializable;
 class UserContext implements JsonSerializable
 {
     /** @var UserContext */
-    static $_instance = null;
+    public static $_instance = null;
 
     /** @var int */
     private $user_id;

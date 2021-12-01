@@ -32,6 +32,7 @@
     "ext-json": "*",
     "ext-memcache": "*",
     "ext-memcached": "*",
+    "ext-mongodb": "*",
     "ext-openssl": "*",
     "bunkerdb/date_range": "1.0.5",
     "cratia/adapter-mysql": "^0.2.5",
@@ -42,16 +43,17 @@
     "dabreu/api-client-skeleton": "^2",
     "doctrine/dbal": "^2.10",
     "doesntmattr/mongodb-migrations": "^3.0",
+    "friendsofphp/php-cs-fixer": "^3.3",
     "league/flysystem": "^2.0",
     "mongodb/mongodb": "1.8.0",
     "monolog/monolog": "^2.0",
     "php-di/php-di": "^6.0",
+    "phpmd/phpmd": "^2.10",
     "slim/psr7": "^1.0",
     "slim/slim": "^4.4",
     "symfony/dotenv": "^5.0",
     "symfony/var-dumper": "^5.0",
-    "symfony/yaml": "^5.0",
-    "ext-mongodb": "*"
+    "symfony/yaml": "^5.0"
   },
   "config": {
     "process-timeout": 0,

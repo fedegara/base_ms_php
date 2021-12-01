@@ -171,7 +171,7 @@ class Filter
                 ];
                 break;
             case self::CONTAIN:
-                if(!is_string($this->getValue())){
+                if (!is_string($this->getValue())) {
                     throw  new Exception("Contain filter must be a simple string");
                 }
                 $return = [$this->getField() => ['$regex' => ".*{$this->getValue()}.*", '$options' => 'i']];

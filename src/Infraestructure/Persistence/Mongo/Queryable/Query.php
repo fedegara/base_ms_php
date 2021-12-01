@@ -114,7 +114,7 @@ final class Query
         $filtersResponse = [];
         array_walk($filters, function ($filter) use (&$filtersResponse) {
             $filter = $filter->getFilter();
-            if(!is_null($filter)){
+            if (!is_null($filter)) {
                 $filtersResponse = array_merge($filtersResponse, $filter);
             }
         });

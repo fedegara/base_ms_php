@@ -4,3 +4,7 @@ parameters:
     - src
     - app
   checkGenericClassInNonGenericObjectType: false
+  bootstrapFiles:
+
+  scanDirectories:
+    - vendor
